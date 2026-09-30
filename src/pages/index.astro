@@ -23,16 +23,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- Search Bar -->
           <form action="/articles/" method="GET" class="hero__search-box">
             <div class="hero__search-inner">
-              <span class="hero__search-icon">🔍</span>
+              <span class="hero__search-icon" aria-hidden="true">🔍</span>
+              <label for="autismSearchInput" class="sr-only">ابحث في الأدلة والمقالات العلمية</label>
               <input
                 type="search"
+                id="autismSearchInput"
                 name="q"
                 class="hero__search-input"
                 placeholder="ابحث في الأدلة والمقالات (مثل: تشخيص التوحد، تقنيات ABA، جداول بصرية...)"
-                aria-label="ابحث في موقع طيف الأمل"
+                aria-label="ابحث في الأدلة والمقالات العلمية"
                 required
               />
-              <button type="submit" class="hero__search-btn">ابحث</button>
+              <button type="submit" class="hero__search-btn" aria-label="تنفيذ البحث">ابحث</button>
             </div>
           </form>
           <div class="hero__cta">
