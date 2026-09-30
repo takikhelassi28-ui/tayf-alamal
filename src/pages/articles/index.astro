@@ -191,9 +191,18 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
     </div>
   </section>
 
-  <!-- Category Filters -->
+  <!-- Category Filters & Search -->
   <section class="filters-section">
     <div class="container">
+      <div class="search-box-wrapper">
+        <input
+          type="search"
+          id="articleSearchInput"
+          class="article-search-input"
+          placeholder="🔍 ابحث في مقالات وأدلة طيف التوحد (مثل: تشخيص، علاج ABA، جداول بصرية...)"
+          aria-label="ابحث في المقالات"
+        />
+      </div>
       <div class="filters-bar">
         <span class="filters-label">تصفية حسب:</span>
         <div class="filters-buttons">
@@ -641,6 +650,28 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
     grid-column: 1 / -1;
   }
 
+  .search-box-wrapper {
+    margin-bottom: var(--space-md);
+  }
+
+  .article-search-input {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: #ffffff;
+    color: var(--color-text);
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .article-search-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 107, 90, 0.15);
+  }
+
   @media (max-width: 768px) {
     .articles-grid {
       grid-template-columns: 1fr;
@@ -684,33 +715,63 @@ const categories = ['الكل', 'تشخيص', 'علاج', 'أدوات', 'أسئ�
 
 <script>
   function initFilters() {
+    const searchInput = document.getElementById('articleSearchInput') as HTMLInputElement | null;
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.article-card');
     const countEl = document.getElementById('articlesCount');
     const emptyEl = document.getElementById('noArticles');
 
+    let currentCategory = 'الكل';
+    let currentQuery = '';
+
+    function applyFilters() {
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const cardCat = card.getAttribute('data-category') || '';
+        const titleEl = card.querySelector('.article-card__title a');
+        const excerptEl = card.querySelector('.article-card__excerpt');
+        const text = ((titleEl?.textContent || '') + ' ' + (excerptEl?.textContent || '')).toLowerCase();
+
+        const matchesCat = currentCategory === 'الكل' || cardCat === currentCategory;
+        const matchesQuery = !currentQuery || text.includes(currentQuery);
+
+        if (matchesCat && matchesQuery) {
+          card.classList.remove('is-hidden');
+          visible++;
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+
+      if (countEl) countEl.textContent = String(visible);
+      if (emptyEl) emptyEl.style.display = visible === 0 ? 'block' : 'none';
+    }
+
     filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         filterBtns.forEach((b) => b.classList.remove('filter-btn--active'));
         btn.classList.add('filter-btn--active');
-
-        const selected = btn.getAttribute('data-category');
-        let visible = 0;
-
-        cards.forEach((card) => {
-          const cardCat = card.getAttribute('data-category');
-          if (selected === 'الكل' || cardCat === selected) {
-            card.classList.remove('is-hidden');
-            visible++;
-          } else {
-            card.classList.add('is-hidden');
-          }
-        });
-
-        if (countEl) countEl.textContent = String(visible);
-        if (emptyEl) emptyEl.style.display = visible === 0 ? 'block' : 'none';
+        currentCategory = btn.getAttribute('data-category') || 'الكل';
+        applyFilters();
       });
     });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = (e.target as HTMLInputElement).value.trim().toLowerCase();
+        applyFilters();
+      });
+    }
+
+    // Read ?q= from URL (e.g. from homepage search)
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q');
+    if (initialQuery && searchInput) {
+      searchInput.value = initialQuery;
+      currentQuery = initialQuery.trim().toLowerCase();
+      applyFilters();
+    }
   }
 
   // Run on initial load and page transitions

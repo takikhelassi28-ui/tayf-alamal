@@ -20,6 +20,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             طيف الأمل هو دليلك الموثوق باللغة العربية لدعم طفلك ذوي طيف التوحد.
             نقدم لك أدوات تعليمية عملية، إرشادات علمية مبسطة، وموارد تساعدك كل يوم.
           </p>
+          <!-- Search Bar -->
+          <form action="/articles/" method="GET" class="hero__search-box">
+            <div class="hero__search-inner">
+              <span class="hero__search-icon">🔍</span>
+              <input
+                type="search"
+                name="q"
+                class="hero__search-input"
+                placeholder="ابحث في الأدلة والمقالات (مثل: تشخيص التوحد، تقنيات ABA، جداول بصرية...)"
+                aria-label="ابحث في موقع طيف الأمل"
+                required
+              />
+              <button type="submit" class="hero__search-btn">ابحث</button>
+            </div>
+          </form>
           <div class="hero__cta">
             <a href="/articles/" class="btn btn--primary">تصفح المقالات</a>
             <a href="/tools/" class="btn btn--outline">الأدوات التعليمية</a>
@@ -267,6 +282,59 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--color-text-muted);
     line-height: 1.8;
     margin-bottom: var(--space-md);
+  }
+
+  .hero__search-box {
+    margin-bottom: var(--space-md);
+    max-width: 540px;
+  }
+
+  .hero__search-inner {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2px solid var(--color-primary-xlight);
+    border-radius: var(--radius-xl);
+    padding: 0.3rem 0.4rem 0.3rem 0.85rem;
+    box-shadow: 0 4px 15px rgba(26, 107, 90, 0.08);
+    transition: all 0.2s ease;
+  }
+
+  .hero__search-inner:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 6px 20px rgba(26, 107, 90, 0.16);
+  }
+
+  .hero__search-icon {
+    font-size: 1.1rem;
+    margin-left: 0.6rem;
+  }
+
+  .hero__search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    background: transparent;
+  }
+
+  .hero__search-btn {
+    background: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .hero__search-btn:hover {
+    background: #145548;
   }
 
   .hero__cta {
