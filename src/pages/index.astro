@@ -287,6 +287,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero__search-box {
     margin-bottom: var(--space-md);
     max-width: 540px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .hero__search-inner {
@@ -298,6 +300,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding: 0.3rem 0.4rem 0.3rem 0.85rem;
     box-shadow: 0 4px 15px rgba(26, 107, 90, 0.08);
     transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .hero__search-inner:focus-within {
@@ -308,16 +312,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .hero__search-icon {
     font-size: 1.1rem;
     margin-left: 0.6rem;
+    flex-shrink: 0;
   }
 
   .hero__search-input {
-    flex: 1;
+    flex: 1 1 0%;
+    min-width: 0;
+    width: 0;
     border: none;
     outline: none;
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--color-text);
     background: transparent;
+    text-overflow: ellipsis;
   }
 
   .hero__search-btn {
@@ -331,6 +339,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: background 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .hero__search-btn:hover {
@@ -635,6 +645,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     .hero__cta .btn {
       width: 100%;
+    }
+    .hero__search-box {
+      width: 100%;
+      margin: 0 auto var(--space-md);
+    }
+    .hero__search-inner {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.6rem;
+      border-radius: var(--radius-lg);
+    }
+    .hero__search-icon {
+      display: none;
+    }
+    .hero__search-input {
+      width: 100%;
+      flex: none;
+      min-width: 0;
+      text-align: center;
+      padding: 0.6rem 0.5rem;
+      font-size: 0.95rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      box-sizing: border-box;
+    }
+    .hero__search-btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border-radius: var(--radius-md);
+      box-sizing: border-box;
     }
     .hero__trust {
       flex-direction: column;
