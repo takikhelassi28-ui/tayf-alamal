@@ -1,0 +1,5 @@
+sanad-parkinson/
+.git/
+node_modules/
+dist/
+.astro/
