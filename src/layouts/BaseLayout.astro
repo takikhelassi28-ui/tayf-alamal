@@ -301,6 +301,7 @@ const fullTitle = `${title} | ${siteName}`;
         margin: 1.5rem 0;
         border-radius: var(--radius-md);
         border: 1px solid var(--color-border);
+        box-sizing: border-box;
       }
 
       .table-wrapper::-webkit-scrollbar {
@@ -323,12 +324,13 @@ const fullTitle = `${title} | ${siteName}`;
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-sm);
         display: table;
+        box-sizing: border-box;
       }
 
       .article-body th {
         background: var(--color-primary);
         color: #fff;
-        padding: 0.75rem 0.9rem;
+        padding: 0.85rem 1rem;
         font-family: var(--font-display);
         font-weight: 700;
         text-align: right;
@@ -336,9 +338,10 @@ const fullTitle = `${title} | ${siteName}`;
       }
 
       .article-body td {
-        padding: 0.7rem 0.9rem;
+        padding: 0.75rem 1rem;
         border-bottom: 1px solid var(--color-border);
         text-align: right;
+        line-height: 1.6;
       }
 
       .article-body tr:last-child td {
@@ -347,6 +350,158 @@ const fullTitle = `${title} | ${siteName}`;
 
       .article-body tr:nth-child(even) td {
         background: var(--color-primary-xlight);
+      }
+
+      /* Mobile Table Controls & Cards Styling */
+      .table-mobile-bar {
+        display: none;
+        margin: 1.25rem 0 0.5rem;
+      }
+
+      .table-view-switcher {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--color-primary-xlight);
+        padding: 0.45rem 0.75rem;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border);
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .switcher-text {
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: var(--color-primary);
+      }
+
+      .tbl-mode-btn {
+        background: #ffffff;
+        border: 1px solid var(--color-border);
+        color: var(--color-text);
+        font-family: var(--font-display);
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 0.4rem 0.9rem;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .tbl-mode-btn--active {
+        background: var(--color-primary) !important;
+        color: #ffffff !important;
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 2px 6px rgba(26, 107, 90, 0.25);
+      }
+
+      .table-scroll-hint {
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+        text-align: center;
+        background: #f1f5f9;
+        padding: 0.4rem;
+        border-radius: var(--radius-sm);
+        margin-bottom: 0.5rem;
+        font-family: var(--font-display);
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        .table-mobile-bar {
+          display: block;
+        }
+
+        /* Responsive Cards View (Mobile Default) */
+        .table-wrapper.is-cards-view {
+          overflow-x: visible !important;
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          margin: 0.5rem 0 1.5rem !important;
+        }
+
+        .table-wrapper.is-cards-view table,
+        .table-wrapper.is-cards-view tbody,
+        .table-wrapper.is-cards-view tr,
+        .table-wrapper.is-cards-view td {
+          display: block !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          box-sizing: border-box !important;
+        }
+
+        .table-wrapper.is-cards-view thead {
+          display: none !important;
+        }
+
+        .table-wrapper.is-cards-view tr {
+          background: #ffffff !important;
+          border: 1.5px solid var(--color-border) !important;
+          border-radius: var(--radius-md) !important;
+          padding: 1.15rem !important;
+          margin-bottom: 1.15rem !important;
+          box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06) !important;
+          border-right: 5px solid var(--color-primary) !important;
+        }
+
+        .table-wrapper.is-cards-view tr:nth-child(even) td {
+          background: transparent !important;
+        }
+
+        .table-wrapper.is-cards-view td {
+          padding: 0.65rem 0 !important;
+          border: none !important;
+          border-bottom: 1px dashed #e2e8f0 !important;
+          font-size: 0.98rem !important;
+          line-height: 1.7 !important;
+          text-align: right !important;
+          background: transparent !important;
+        }
+
+        .table-wrapper.is-cards-view td:last-child {
+          border-bottom: none !important;
+          padding-bottom: 0 !important;
+        }
+
+        /* First cell behaves as the primary card title */
+        .table-wrapper.is-cards-view td:first-child {
+          font-size: 1.18rem !important;
+          font-weight: 900 !important;
+          color: var(--color-primary) !important;
+          padding-top: 0 !important;
+          border-bottom: 2px solid var(--color-primary-xlight) !important;
+          margin-bottom: 0.45rem !important;
+          padding-bottom: 0.55rem !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 0.4rem !important;
+        }
+
+        /* Subsequent cells show their column title as a label */
+        .table-wrapper.is-cards-view td:not(:first-child)::before {
+          content: attr(data-label) ": ";
+          display: block;
+          font-family: var(--font-display);
+          font-weight: 800;
+          font-size: 0.85rem;
+          color: var(--color-accent);
+          margin-bottom: 0.25rem;
+        }
+
+        /* Traditional Table View (When user clicks switch on mobile) */
+        .table-wrapper.is-table-view {
+          overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          border: 1px solid var(--color-border) !important;
+          background: var(--color-surface) !important;
+        }
+
+        .table-wrapper.is-table-view table {
+          min-width: 580px !important;
+        }
       }
 
       .info-box {
@@ -765,6 +920,74 @@ const fullTitle = `${title} | ${siteName}`;
         const isOpen = links?.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
+
+      // Mobile Responsive Tables Enhancer
+      function initMobileTables() {
+        const tables = document.querySelectorAll('.table-wrapper table, .article-body table, table');
+        tables.forEach((table) => {
+          if (table.hasAttribute('data-mobile-enhanced')) return;
+          table.setAttribute('data-mobile-enhanced', 'true');
+
+          const wrapper = table.closest('.table-wrapper') || table.parentElement;
+          if (!wrapper) return;
+
+          // Extract column headers
+          const ths = Array.from(table.querySelectorAll('thead th')).map((th) => th.textContent.trim());
+          if (ths.length === 0) return;
+
+          // Assign data-label to each td
+          const rows = table.querySelectorAll('tbody tr');
+          rows.forEach((tr) => {
+            const tds = tr.querySelectorAll('td');
+            tds.forEach((td, idx) => {
+              if (ths[idx]) {
+                td.setAttribute('data-label', ths[idx]);
+              }
+            });
+          });
+
+          // Create mobile switcher controls
+          const bar = document.createElement('div');
+          bar.className = 'table-mobile-bar';
+          bar.innerHTML = `
+            <div class="table-view-switcher">
+              <span class="switcher-text">📱 طريقة العرض:</span>
+              <button type="button" class="tbl-mode-btn tbl-mode-btn--active" data-mode="cards">بطاقات مريحة</button>
+              <button type="button" class="tbl-mode-btn" data-mode="table">جدول تقليدي</button>
+            </div>
+            <div class="table-scroll-hint" style="display:none;">👈 يمكنك سحب الجدول أفقياً لرؤية كافة الأعمدة 👉</div>
+          `;
+
+          wrapper.parentNode.insertBefore(bar, wrapper);
+          wrapper.classList.add('is-cards-view');
+
+          const btnCards = bar.querySelector('[data-mode="cards"]');
+          const btnTable = bar.querySelector('[data-mode="table"]');
+          const hint = bar.querySelector('.table-scroll-hint');
+
+          btnCards?.addEventListener('click', () => {
+            btnCards.classList.add('tbl-mode-btn--active');
+            btnTable?.classList.remove('tbl-mode-btn--active');
+            wrapper.classList.add('is-cards-view');
+            wrapper.classList.remove('is-table-view');
+            if (hint) hint.style.display = 'none';
+          });
+
+          btnTable?.addEventListener('click', () => {
+            btnTable.classList.add('tbl-mode-btn--active');
+            btnCards?.classList.remove('tbl-mode-btn--active');
+            wrapper.classList.remove('is-cards-view');
+            wrapper.classList.add('is-table-view');
+            if (hint) hint.style.display = 'block';
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileTables);
+      } else {
+        initMobileTables();
+      }
     </script>
   </body>
 </html>
