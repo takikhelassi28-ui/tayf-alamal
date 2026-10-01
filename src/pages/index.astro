@@ -69,11 +69,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- AD SLOT TOP -->
-  <div class="container">
-    
-  </div>
-
   <!-- FEATURES / WHY US -->
   <section class="features">
     <div class="container">
@@ -208,11 +203,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
-
-  <!-- AD SLOT BOTTOM -->
-  <div class="container">
-    
-  </div>
 </BaseLayout>
 
 <style>
@@ -379,6 +369,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* FEATURES */
   .features {
     padding: var(--space-xl) 0;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 350px;
   }
 
   .section-header {
@@ -434,6 +426,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .articles-preview {
     padding: var(--space-xl) 0;
     background: var(--color-primary-xlight);
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
   }
 
   .articles-grid {
@@ -536,6 +530,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* TOOLS CTA */
   .tools-cta {
     padding: var(--space-xl) 0;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 300px;
   }
 
   .tools-cta__inner {
@@ -569,6 +565,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .expert-note {
     padding-bottom: var(--space-lg);
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 150px;
   }
 
   /* Responsive */

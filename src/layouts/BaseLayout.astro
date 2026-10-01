@@ -69,27 +69,29 @@ const fullTitle = `${title} | ${siteName}`;
       ]
     })} />
 
+    <meta name="theme-color" content="#1a6b5a" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Optimized Non-Render-Blocking Google Fonts -->
+    <!-- Highly Optimized Google Fonts (Subset 3 weights instead of 8) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700&family=Noto+Naskh+Arabic:wght@400;700&display=swap"
       />
     </noscript>
 
@@ -582,6 +584,8 @@ const fullTitle = `${title} | ${siteName}`;
         color: rgba(255,255,255,0.75);
         padding: var(--space-xl) 0 var(--space-md);
         margin-top: var(--space-2xl);
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 400px;
       }
 
       .footer-grid {
