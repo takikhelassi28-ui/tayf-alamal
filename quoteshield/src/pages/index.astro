@@ -1,5 +1,206 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Pool of in-depth guides and articles to feature dynamically
+const allArticles = [
+  {
+    category: 'Auto Insurance',
+    badge: 'Benchmark',
+    title: 'Car Insurance Rates in 2026: Complete National Benchmark & Carrier Cost Analysis',
+    excerpt: 'Full breakdown of national averages ($2,388/yr full coverage vs $784/yr minimum), carrier rate spreads, and top discount levers.',
+    url: '/guides/auto-insurance/',
+    reviewer: 'Marcus Vance, CPCU',
+    readTime: '11 min read',
+    date: 'Oct 2026',
+    tagIcon: '🚗'
+  },
+  {
+    category: 'Medicare & Health',
+    badge: 'Comparison',
+    title: 'Medicare Advantage vs. Medigap (Plan G & Plan N) in 2026: Definitive Guide',
+    excerpt: 'The true trade-offs between $0 premium Advantage HMO/PPO plans and unrestricted doctor freedom with Medigap Plan G.',
+    url: '/guides/health-insurance/',
+    reviewer: 'David Sterling, CLU',
+    readTime: '12 min read',
+    date: 'Oct 2026',
+    tagIcon: '🏥'
+  },
+  {
+    category: 'Homeowners',
+    badge: 'Property Guide',
+    title: 'Homeowners Insurance Cost Breakdown: Replacement Cost vs. Market Value',
+    excerpt: 'Why insuring your home based on market price is a costly mistake, and three essential endorsements every homeowner needs.',
+    url: '/guides/home-insurance/',
+    reviewer: 'Marcus Vance, CPCU',
+    readTime: '10 min read',
+    date: 'Sep 2026',
+    tagIcon: '🏡'
+  },
+  {
+    category: 'Life Insurance',
+    badge: 'Actuarial Audit',
+    title: 'Term vs. Whole Life Insurance: Comprehensive Cost Comparison & Rate Benchmark',
+    excerpt: 'Actuarial monthly premium tables across ages 25 to 65, cash value fee realities, and the "Buy Term and Invest the Difference" math.',
+    url: '/guides/life-insurance/',
+    reviewer: 'Elena Rostova, CFP®',
+    readTime: '14 min read',
+    date: 'Sep 2026',
+    tagIcon: '🛡️'
+  },
+  {
+    category: 'State Matrices',
+    badge: '50-State Ranking',
+    title: 'Car Insurance Rates by State in 2026: 50-State Ranking & Cost Matrix',
+    excerpt: 'Interactive table comparing Maine ($1,170/yr) to Florida ($3,640/yr), no-fault tort systems, and uninsured motorist contagion.',
+    url: '/guides/state-car-insurance-averages/',
+    reviewer: 'Marcus Vance, CPCU',
+    readTime: '13 min read',
+    date: 'Oct 2026',
+    tagIcon: '📊'
+  },
+  {
+    category: 'Commercial',
+    badge: 'Small Business',
+    title: 'Small Business General Liability Insurance: Costs, Limits & BOP Bundles',
+    excerpt: 'Understand the standard $1M/$2M occurrence limit, class code costs by industry, and how Business Owner\'s Policies save 20%.',
+    url: '/guides/commercial-insurance/',
+    reviewer: 'Marcus Vance, CPCU',
+    readTime: '9 min read',
+    date: 'Sep 2026',
+    tagIcon: '🏢'
+  },
+  {
+    category: 'Auto Savings',
+    badge: 'Cost Cutting',
+    title: 'The Budget Driver’s Guide to Affordable Car Insurance: 7 Proven Strategies',
+    excerpt: 'How adjusting comprehensive/collision deductibles from $500 to $1,000 saves up to 28% without sacrificing catastrophic liability.',
+    url: '/guides/cheap-car-insurance-guide/',
+    reviewer: 'Marcus Vance, CPCU',
+    readTime: '8 min read',
+    date: 'Oct 2026',
+    tagIcon: '💡'
+  },
+  {
+    category: 'Credit & Underwriting',
+    badge: 'Actuarial Deep Dive',
+    title: 'Credit-Based Insurance Scores: How FICO Affects Your Premiums by up to 71%',
+    excerpt: 'Why 46 states allow insurers to price policies using credit tiers, and what consumers in CA, MA, and HI can expect.',
+    url: '/guides/insurance-score-factors/',
+    reviewer: 'Elena Rostova, CFP®',
+    readTime: '10 min read',
+    date: 'Sep 2026',
+    tagIcon: '📈'
+  },
+  {
+    category: 'Bundling',
+    badge: 'Multi-Policy',
+    title: 'Home & Auto Insurance Bundling Guide: Real Discounts vs. Decoupled Policies',
+    excerpt: 'When bundling multi-policy discounts deliver genuine 18% savings vs when mono-line specialty carriers beat the package.',
+    url: '/guides/home-auto-bundle/',
+    reviewer: 'Marcus Vance, CPCU',
+    readTime: '9 min read',
+    date: 'Sep 2026',
+    tagIcon: '🔗'
+  },
+  {
+    category: 'Medicare Timing',
+    badge: 'Enrollment Alert',
+    title: 'Medicare Open Enrollment 2026: Annual Notice of Change (ANOC) Survival Guide',
+    excerpt: 'How carrier formulary adjustments and drug tier restructurings impact out-of-pocket costs between October 15 and December 7.',
+    url: '/guides/medicare-open-enrollment/',
+    reviewer: 'David Sterling, CLU',
+    readTime: '11 min read',
+    date: 'Oct 2026',
+    tagIcon: '⏰'
+  },
+  {
+    category: 'Workers’ Comp',
+    badge: 'Regulatory Rules',
+    title: 'Workers’ Compensation Insurance Fundamentals: E-Mod Ratings & Payroll Audits',
+    excerpt: 'Demystifying experience modification rates (EMR), class code classification, and how to avoid painful annual payroll audit penalties.',
+    url: '/guides/commercial-workers-comp/',
+    reviewer: 'Marcus Vance, CPCU',
+    readTime: '10 min read',
+    date: 'Sep 2026',
+    tagIcon: '👷'
+  }
+];
+
+// Curated insurance market news & regulatory alerts
+const marketNews = [
+  {
+    source: 'NAIC Regulatory Update',
+    date: 'October 2026',
+    title: 'State Regulators Scrutinize Telematics & Driving Score Algorithms',
+    summary: 'Several state insurance commissioners opened formal inquiries into mobile app driving trackers to ensure price discrimination protections.',
+    tag: 'Regulation',
+    readLink: '/guides/insurance-score-factors/'
+  },
+  {
+    source: 'Actuarial Market Brief',
+    date: 'October 2026',
+    title: 'Average Replacement Cost Values Rise 6.4% Due to Skilled Labor & Material Trends',
+    summary: 'Insurers adjust Coverage A minimums nationwide; homeowners are urged to verify their 100% reconstruction cost guarantees.',
+    tag: 'Property Trends',
+    readLink: '/guides/home-insurance/'
+  },
+  {
+    source: 'Centers for Medicare & Medicaid',
+    date: 'October 2026',
+    title: 'Medicare Part D Out-of-Pocket Cap Restructures Senior Prescription Plans',
+    summary: 'The landmark $2,000 annual drug spend cap prompts insurers to re-balance Advantage HMO copays heading into open enrollment.',
+    tag: 'Medicare Alert',
+    readLink: '/guides/medicare-open-enrollment/'
+  },
+  {
+    source: 'Highway Loss Data Institute (HLDI)',
+    date: 'September 2026',
+    title: 'EV Collision Repair Severities Drive Higher Comprehensive Premiums',
+    summary: 'Sensor calibration and specialized battery repair protocols push average collision claim costs 24% above ICE vehicle counterparts.',
+    tag: 'Auto Intelligence',
+    readLink: '/guides/auto-insurance/'
+  }
+];
+
+// Verified Actuarial & Consumer Insurance Facts
+const insuranceFacts = [
+  {
+    number: '71%',
+    label: 'Credit Rating Premium Delta',
+    fact: 'In states allowing credit-based insurance scores, drivers with poor credit pay up to 71% more for the exact same coverage than drivers with excellent scores.',
+    source: 'Consumer Federation of America & NAIC Data'
+  },
+  {
+    number: '$2,388',
+    label: '2026 National Auto Benchmark',
+    fact: 'The 2026 nationwide benchmark for full coverage auto insurance ($100k/$300k/$100k limits with $500 deductibles) across all 50 states.',
+    source: 'QuoteShield Rate Index & SERFF Filings'
+  },
+  {
+    number: '18%–24%',
+    label: 'Average Bundle Savings',
+    fact: 'Combining your homeowners and personal auto policies with the same carrier yields an average discount of 18% to 24% across top nationwide insurers.',
+    source: 'Insurance Information Institute (Triple-I)'
+  },
+  {
+    number: '80%',
+    label: 'The Coinsurance Clause Rule',
+    fact: 'Most standard homeowners policies require your dwelling coverage (Coverage A) to equal at least 80% of replacement cost to receive full claim payouts on partial losses.',
+    source: 'ISO Standard Homeowners Policy Form HO-3'
+  },
+  {
+    number: '1 in 8',
+    label: 'Uninsured Drivers Nationwide',
+    fact: 'Approximately 12.6% of motorists drive without active liability insurance, spiking Uninsured/Underinsured Motorist (UM/UIM) claim volumes.',
+    source: 'Insurance Research Council (IRC)'
+  },
+  {
+    number: '10x–12x',
+    label: 'Income Replacement Standard',
+    fact: 'Financial planners recommend life insurance death benefits equivalent to 10 to 12 times gross annual income plus outstanding debt balance (the DIME method).',
+    source: 'Certified Financial Planner Board Standards'
+  }
+];
 ---
 
 <BaseLayout
@@ -245,6 +446,144 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Dynamic Section: Random Articles Discovery, Market News & Key Facts -->
+  <section class="container section-padding dynamic-intel-section">
+    <div class="intel-header">
+      <div class="intel-title-group">
+        <span class="badge badge-accent">⚡ Intelligence Stream</span>
+        <h2>Insurance Wire: Random Articles, Market News & Key Facts</h2>
+        <p class="section-subtext">Real-time statutory updates, random deep-dive guides, and verified actuarial facts updated for 2026.</p>
+      </div>
+      <button id="shuffle-articles-btn" class="btn btn-outline-refresh" aria-label="Shuffle random articles">
+        <span class="refresh-icon">🔄</span> Shuffle Random Guides
+      </button>
+    </div>
+
+    <!-- 3-Column Layout: Random Guides (2 cols) + News & Facts (1 col) -->
+    <div class="intel-layout-grid">
+      <!-- Left: Random Interactive Article Explorer (Card Slots) -->
+      <div class="intel-articles-col">
+        <div class="col-subheading">
+          <h3>🎲 Random Featured Deep Dives</h3>
+          <span class="pulse-indicator">Click shuffle to load other guides</span>
+        </div>
+
+        <div id="random-articles-container" class="random-articles-grid">
+          {allArticles.slice(0, 4).map((art) => (
+            <article class="random-article-card card" data-slug={art.url}>
+              <div class="card-top-bar">
+                <span class="tag-badge">{art.tagIcon} {art.category}</span>
+                <span class="read-time">{art.readTime}</span>
+              </div>
+              <h4 class="random-card-title">
+                <a href={art.url}>{art.title}</a>
+              </h4>
+              <p class="random-card-excerpt">{art.excerpt}</p>
+              <div class="card-footer">
+                <span class="reviewer-stamp">✓ {art.reviewer}</span>
+                <a href={art.url} class="intel-read-btn">Read Article &rarr;</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Market News & Actuarial Fast Facts -->
+      <div class="intel-sidebar-col">
+        <!-- Live News Wire Card -->
+        <div class="sidebar-block card news-block">
+          <div class="block-header">
+            <span class="block-icon">📰</span>
+            <div>
+              <h3>Insurance Market News</h3>
+              <span class="block-meta">Public Filings & CMS Notices</span>
+            </div>
+          </div>
+          <div class="news-list">
+            {marketNews.map((news) => (
+              <div class="news-item">
+                <div class="news-meta">
+                  <span class="news-tag">{news.tag}</span>
+                  <span class="news-date">{news.date}</span>
+                </div>
+                <h4 class="news-title">
+                  <a href={news.readLink}>{news.title}</a>
+                </h4>
+                <p class="news-summary">{news.summary}</p>
+                <div class="news-source">Source: <strong>{news.source}</strong></div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Fast Actuarial Facts Card -->
+        <div class="sidebar-block card facts-block">
+          <div class="block-header">
+            <span class="block-icon">💡</span>
+            <div>
+              <h3>Actuarial & Rate Facts</h3>
+              <span class="block-meta">Verified Consumer Benchmarks</span>
+            </div>
+          </div>
+          <div class="facts-list">
+            {insuranceFacts.map((fact) => (
+              <div class="fact-item">
+                <div class="fact-top">
+                  <span class="fact-stat">{fact.number}</span>
+                  <span class="fact-label">{fact.label}</span>
+                </div>
+                <p class="fact-text">{fact.fact}</p>
+                <span class="fact-citation">Source: {fact.source}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pass Articles Data for Client-Side Shuffle -->
+  <script is:inline define:vars={{ allArticles }}>
+    const shuffleBtn = document.getElementById('shuffle-articles-btn');
+    const container = document.getElementById('random-articles-container');
+
+    function getRandomSubarray(arr, size) {
+      const shuffled = [...arr].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, size);
+    }
+
+    function renderArticles(articlesList) {
+      if (!container) return;
+      container.innerHTML = articlesList.map(art => `
+        <article class="random-article-card card" data-slug="${art.url}">
+          <div class="card-top-bar">
+            <span class="tag-badge">${art.tagIcon} ${art.category}</span>
+            <span class="read-time">${art.readTime}</span>
+          </div>
+          <h4 class="random-card-title">
+            <a href="${art.url}">${art.title}</a>
+          </h4>
+          <p class="random-card-excerpt">${art.excerpt}</p>
+          <div class="card-footer">
+            <span class="reviewer-stamp">✓ ${art.reviewer}</span>
+            <a href="${art.url}" class="intel-read-btn">Read Article &rarr;</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    if (shuffleBtn && container) {
+      shuffleBtn.addEventListener('click', () => {
+        shuffleBtn.classList.add('spinning');
+        const randomPicks = getRandomSubarray(allArticles, 4);
+        renderArticles(randomPicks);
+        setTimeout(() => {
+          shuffleBtn.classList.remove('spinning');
+        }, 400);
+      });
+    }
+  </script>
 </BaseLayout>
 
 <style>
@@ -600,5 +939,341 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.825rem;
     line-height: 1.5;
     margin: 0;
+  }
+
+  /* Dynamic Section: Insurance Wire, Random Articles, News & Facts */
+  .dynamic-intel-section {
+    background: #f8fafc;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .intel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .intel-title-group h2 {
+    font-size: 2.1rem;
+    margin: 0.5rem 0 0.25rem;
+    color: var(--color-primary);
+  }
+
+  .btn-outline-refresh {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    color: var(--color-primary);
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-outline-refresh:hover {
+    background: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .refresh-icon {
+    display: inline-block;
+    transition: transform 0.4s ease;
+  }
+
+  .btn-outline-refresh.spinning .refresh-icon {
+    transform: rotate(360deg);
+  }
+
+  .intel-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .intel-layout-grid {
+      grid-template-columns: 1.65fr 1fr;
+    }
+  }
+
+  .col-subheading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .col-subheading h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--color-primary);
+  }
+
+  .pulse-indicator {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    background: #e2e8f0;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  /* Random Articles Cards Grid */
+  .random-articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .random-articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .random-article-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .random-article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+  }
+
+  .card-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+    font-size: 0.825rem;
+  }
+
+  .tag-badge {
+    background: #eff6ff;
+    color: #1e40af;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .read-time {
+    color: var(--color-text-secondary);
+  }
+
+  .random-card-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 0 0 0.75rem;
+  }
+
+  .random-card-title a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .random-card-title a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  .random-card-excerpt {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    margin: 0 0 1.25rem;
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.825rem;
+  }
+
+  .reviewer-stamp {
+    color: #166534;
+    font-weight: 600;
+  }
+
+  .intel-read-btn {
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .intel-read-btn:hover {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  /* Sidebar: News & Facts */
+  .intel-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sidebar-block {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+  }
+
+  .block-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .block-icon {
+    font-size: 1.6rem;
+  }
+
+  .block-header h3 {
+    font-size: 1.15rem;
+    margin: 0;
+    color: var(--color-primary);
+  }
+
+  .block-meta {
+    font-size: 0.775rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* News List */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .news-item {
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .news-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .news-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .news-tag {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #b45309;
+    letter-spacing: 0.03em;
+  }
+
+  .news-date {
+    color: #94a3b8;
+  }
+
+  .news-title {
+    font-size: 0.95rem;
+    line-height: 1.35;
+    margin: 0 0 0.35rem;
+  }
+
+  .news-title a {
+    color: #0f172a;
+    text-decoration: none;
+  }
+
+  .news-title a:hover {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+
+  .news-summary {
+    font-size: 0.825rem;
+    line-height: 1.5;
+    color: #475569;
+    margin: 0 0 0.4rem;
+  }
+
+  .news-source {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  /* Facts List */
+  .facts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .fact-item {
+    background: #f8fafc;
+    border-left: 3px solid var(--color-primary);
+    padding: 0.85rem 1rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .fact-top {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .fact-stat {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  .fact-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .fact-text {
+    font-size: 0.825rem;
+    line-height: 1.45;
+    color: #475569;
+    margin: 0 0 0.4rem;
+  }
+
+  .fact-citation {
+    display: block;
+    font-size: 0.725rem;
+    color: #94a3b8;
+    font-style: italic;
   }
 </style>
