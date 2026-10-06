@@ -180,6 +180,18 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     line-height: 1.8;
   }
 
+  @media (max-width: 640px) {
+    .article-wrapper {
+      margin: 1.5rem auto 3rem;
+      padding: 0 10px;
+    }
+
+    .main-title {
+      font-size: 1.65rem !important;
+      line-height: 1.35 !important;
+    }
+  }
+
   .breadcrumbs {
     font-size: 0.85rem;
     color: #64748b;
@@ -284,8 +296,27 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   .ad-slot-wrapper {
     margin: 1.5rem 0 2rem;
     text-align: center;
-    overflow-x: auto;
     background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* On mobile (< 640px), smoothly scale the 600px desktop ad to fit 100% of the screen */
+  @media (max-width: 640px) {
+    .ad-slot-wrapper {
+      margin: 1rem 0 1.5rem;
+      height: calc((100vw - 20px) * (300 / 600));
+      max-height: 290px;
+    }
+
+    .ad-slot-wrapper ins.adsbygoogle {
+      transform-origin: top center;
+      transform: scale(calc((100vw - 20px) / 600));
+      margin: 0 auto !important;
+    }
   }
 
   .content-body h2 {
