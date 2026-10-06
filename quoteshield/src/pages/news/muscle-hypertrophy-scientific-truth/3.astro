@@ -308,14 +308,35 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   @media (max-width: 640px) {
     .ad-slot-wrapper {
       margin: 1rem 0 1.5rem;
-      height: calc((100vw - 20px) * (300 / 600));
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: calc((100vw - 20px) * 0.5);
       max-height: 290px;
     }
 
     .ad-slot-wrapper ins.adsbygoogle {
-      transform-origin: top center;
-      transform: scale(calc((100vw - 20px) / 600));
+      width: 600px !important;
+      max-width: 600px !important;
+      min-width: 600px !important;
+      height: 300px !important;
+      transform-origin: top center !important;
+      transform: scale(calc((100vw - 20px) / 600)) !important;
       margin: 0 auto !important;
+    }
+
+    .ad-slot-wrapper #ad-container {
+      width: 600px !important;
+      max-width: 600px !important;
+      min-width: 600px !important;
+      height: 300px !important;
+    }
+
+    .ad-slot-wrapper #ad-iframe {
+      width: 600px !important;
+      height: 300px !important;
     }
   }
 
