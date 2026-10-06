@@ -259,16 +259,9 @@ const fullTitle = title.includes('QuoteShield') ? title : `${title} | QuoteShiel
     display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     .trust-notice {
       display: inline;
-    }
-  @media (max-width: 600px) {
-    .top-bar-content {
-      justify-content: center;
-    }
-    .trust-link {
-      display: none;
     }
   }
 
@@ -280,6 +273,19 @@ const fullTitle = title.includes('QuoteShield') ? title : `${title} | QuoteShiel
   .trust-link:hover {
     color: #ffffff;
     text-decoration: underline;
+  }
+
+  @media (max-width: 480px) {
+    .top-bar-content {
+      justify-content: space-between;
+    }
+    .trust-pill {
+      font-size: 0.68rem;
+      padding: 0.1rem 0.4rem;
+    }
+    .trust-link {
+      font-size: 0.68rem;
+    }
   }
 
   .site-header {
@@ -365,7 +371,7 @@ const fullTitle = title.includes('QuoteShield') ? title : `${title} | QuoteShiel
     display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .header-cta-btn {
       display: inline-flex;
     }
@@ -420,6 +426,12 @@ const fullTitle = title.includes('QuoteShield') ? title : `${title} | QuoteShiel
 
   .mobile-menu.is-open {
     display: block;
+  }
+
+  @media (min-width: 992px) {
+    .mobile-menu {
+      display: none !important;
+    }
   }
 
   .mobile-nav-list {
