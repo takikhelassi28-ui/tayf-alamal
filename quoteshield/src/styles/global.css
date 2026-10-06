@@ -396,12 +396,47 @@ p:last-child {
   line-height: 1.6;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (max-width: 768px) {
-  h1 { font-size: 1.75rem; }
-  h2 { font-size: 1.4rem; }
-  h3 { font-size: 1.2rem; }
+  h1 { font-size: 1.75rem !important; }
+  h2 { font-size: 1.35rem !important; }
+  h3 { font-size: 1.15rem !important; }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Table optimizations on mobile */
+  .data-table th, .data-table td {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.825rem;
+  }
+
+  .data-table th {
+    font-size: 0.775rem;
+  }
+
+  /* Prevent iOS zoom on form inputs */
+  .form-input {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+
   .author-card {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.55rem !important; }
+  h2 { font-size: 1.25rem !important; }
+  
+  .callout {
+    padding: 1rem 1.15rem;
   }
 }
