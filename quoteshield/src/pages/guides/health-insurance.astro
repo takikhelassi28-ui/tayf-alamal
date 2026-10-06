@@ -25,25 +25,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   <div class="container article-layout">
     <div class="main-article-body article-content">
-      <!-- Ad Placement under First Title -->
-      <div class="ad-placement-wrap">
-        <div class="ad-scaler">
-          <ins data-ad-format="auto" class="adsbygoogle"
-               data-ad-client="ca-pub-3694602368387194"
-               data-adsbygoogle-status="done"
-               style="display: block; margin: auto; background-color: transparent; height: 340px; width: 600px; overflow: hidden;"
-               data-ad-status="filled">
-            <div id="ad-container" tabindex="0" title="Advertisement" aria-label="Advertisement"
-                 style="border: none; height: 340px; width: 600px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;">
-              <iframe id="ad-iframe" name="ad-iframe" style="left:0; position:absolute; top:0; border:0; width:600px; height:340px; overflow: hidden;"
-                      sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-                      width="600" height="340" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"
-                      src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3694602368387194&amp;h=300&amp;slotname=4556431832&amp;w=600&amp;rafmt=11&amp;format=600x300&amp;url=https://eltaweba.blogspot.com/&amp;host=ca-host-pub-8544321996124660&amp;"
-                      data-google-container-id="a!2" data-load-complete="true"></iframe>
-            </div>
-          </ins>
-        </div>
-      </div>
 
       <!-- Key Takeaways Callout -->
       <div class="callout">
@@ -285,27 +266,5 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .faq-answer {
     display: none;
-  }
-
-  .ad-placement-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem auto 2rem;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .ad-scaler {
-    width: 600px;
-    height: 340px;
-    transform-origin: top center;
-  }
-
-  @media (max-width: 640px) {
-    .ad-scaler {
-      transform: scale(calc((100vw - 32px) / 600));
-      margin-bottom: calc(340px * (calc((100vw - 32px) / 600) - 1));
-    }
   }
 </style>
