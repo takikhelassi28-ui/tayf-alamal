@@ -22,167 +22,295 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="author-meta">
         <span>بقلم: <strong>د. جيمس هارلو</strong> (استشاري فسيولوجيا الجهد البدني)</span>
         <span>• مراجعة: الجمعية الأمريكية للطب الرياضي (ACSM)</span>
-        <span>• وقت القراءة: 7 دقائق</span>
+        <span>• تدقيق سريري: أكتوبر 2026</span>
       </div>
     </header>
 
-    <!-- Shocking Hero Metric Box -->
-    <div class="stat-callout-hero">
-      <span class="stat-tag">⚠️ مؤشر كفاءة التمارين الرياضية (JSCR 2026)</span>
-      <div class="stat-number">60%+</div>
-      <h3>من إجمالي الجولات التدريبية داخل صالات الجيم هي "حجم مهدر" تماماً</h3>
-      <p>تستهلك المفاصل، ترفع هرمونات التوتر (الكورتيزول)، وتمنحك صفر إشارات جينية حقيقية لتحفيز نمو البروتين العضلي.</p>
+    <!-- Interactive Progress Tracker -->
+    <div class="pagination-tracker">
+      <div class="tracker-steps">
+        <div class="step-node active" id="step-node-1">
+          <span class="step-num">1</span>
+          <span class="step-label">فخ الحجم المهدر</span>
+        </div>
+        <div class="step-line" id="step-line-1"></div>
+        <div class="step-node" id="step-node-2">
+          <span class="step-num">2</span>
+          <span class="step-label">الميكانيكا الحيوية والشدة</span>
+        </div>
+        <div class="step-line" id="step-line-2"></div>
+        <div class="step-node" id="step-node-3">
+          <span class="step-num">3</span>
+          <span class="step-label">مخاطر الإصابات والبروتوكول</span>
+        </div>
+      </div>
     </div>
 
-    <div class="content-body">
-      <h2>1. المفارقة البيولوجية: لماذا يخدعك الشعور بالتعب؟</h2>
-      <p>
-        المفارقة الصادمة في فسيولوجيا العضلات أن الجولات غير الفعالة تشعرك بالتعب والإرهاق أكثر بكثير من التمارين المصممة بدقة للنمو!
-      </p>
-      <p>
-        عندما تؤدي تكرارات سريعة بأوزان غير مناسبة، يؤدي تراكم حمض اللاكتيك في الأنسجة إلى إحساس بحرقان شديد في العضلة، إلى جانب ضيق التنفس وتسارع نبضات القلب. هذا المزيج يخدع جهازك العصبي المركزي بأنك حققت إنجازاً بدنياً خارقاً، بينما الحقيقة البيولوجية أن الألياف المسؤولة عن الضخامة لم تتعرض للشد المطلوب لإطلاق إشارة التخليق العضلي (Muscle Protein Synthesis).
-      </p>
-
-      <!-- Comparison Matrix -->
-      <div class="comparison-grid">
-        <div class="comparison-col bad-col">
-          <div class="col-head bad-head">❌ فخ الجولات المهدرة (Junk Sets)</div>
-          <ul class="points-list">
-            <li>⚡ 15 إلى 20 تكراراً سريعاً بأوزان خفيفة أو متوسطة</li>
-            <li>🔥 إحساس بحرقة شديدة وتراكم اللاكتيك (إشارة وهمية)</li>
-            <li>💦 تعرق وإرهاق قلبي تنفسي مرتفع جداً</li>
-            <li>🛑 صفر تحفيز للألياف العضلية السريعة (Type IIx)</li>
-            <li>⚠️ إجهاد تراكمي للمفاصل والأوتار بلا فائدة</li>
-          </ul>
-        </div>
-        <div class="comparison-col good-col">
-          <div class="col-head good-head">✅ منطقة التضخيم الفعال (Hypertrophy Zone)</div>
-          <ul class="points-list">
-            <li>🎯 6 إلى 12 تكراراً محسوباً بوزن يحقق الشد المطلوب</li>
-            <li>🛡️ توتر ميكانيكي حقيقي ومستمر على الجسور البروتينية</li>
-            <li>⏸️ التوقف قبل الفشل العضلي بتكرار إلى تكرارين فقط (1-2 RIR)</li>
-            <li>🚀 تحفيز جيني كامل لتضخيم الألياف الليفية الدائمة</li>
-            <li>🧘‍♂️ استشفاء أسرع وأمان تام للأوتار والغضاريف</li>
-          </ul>
-        </div>
+    <!-- ========================================== -->
+    <!-- PART 1: فخ الحجم التدريبي المهدر ووهم التعب -->
+    <!-- ========================================== -->
+    <section id="part-1" class="page-part active-part">
+      <!-- Shocking Hero Metric Box -->
+      <div class="stat-callout-hero">
+        <span class="stat-tag">⚠️ مؤشر كفاءة التمارين الرياضية (JSCR 2026)</span>
+        <div class="stat-number">60%+</div>
+        <h3>من إجمالي الجولات التدريبية داخل صالات الجيم هي "حجم مهدر" تماماً</h3>
+        <p>تستهلك المفاصل، ترفع هرمونات التوتر (الكورتيزول)، وتمنحك صفر إشارات جينية حقيقية لتحفيز نمو البروتين العضلي.</p>
       </div>
 
-      <h2>2. قانون الميكانيكا الحيوية: التوتر الميكانيكي مقابل وهم "البامب"</h2>
-      <p>
-        تضخيم العضلات لا يخضع لمقدار الألم أو التعرق، بل يحكمه قانون فيزيائي صارم هو <strong>التوتر الميكانيكي (Mechanical Tension)</strong> — وهو مقدار الشد المقاوم الذي تواجهه خيوط الأكتين والمايوسين داخل الليفة العضلية.
-      </p>
-      <div class="science-note-box">
-        <h4>🔬 ما هو "البامب" (Pump) في المنظور الإكلينيكي؟</h4>
+      <div class="content-body">
+        <h2>1. المفارقة البيولوجية: لماذا يخدعك الشعور بالتعب؟</h2>
         <p>
-          الانتفاخ وبروز العروق الذي يشعر به المتدرب عقب التكرارات الكثيرة يسمى طبياً بـ <em>احتقان السوائل الخلوي (Sarcoplasmic Edema)</em>. إنه مجرد تجمع عابر للدم والسوائل يزول تلقائياً بعد 60 إلى 90 دقيقة من انتهاء التمرين ولا يعني حدوث نمو دائم. الضخامة الحقيقية المستمرة (Myofibrillar Hypertrophy) تتطلب وزناً كافياً يجبر المخ على تجنيد أعلى مستويات الألياف الحركية.
+          المفارقة الصادمة في فسيولوجيا العضلات أن الجولات غير الفعالة تشعرك بالتعب والإرهاق أكثر بكثير من التمارين المصممة بدقة للنمو!
         </p>
-      </div>
-
-      <h2>3. فخ التكرارات المتبقية (RIR): لماذا تظن أنك قريب من الفشل وأنت بعيد؟</h2>
-      <p>
-        في دراسة حديثة أُجريت على مئات المتدربين باستخدام التخطيط العضلي الكهربائي (EMG)، تبيّن أن 90% من رواد الجيم يخطئون في تقدير مدى قربهم من الفشل العضلي بفارق <strong>4 إلى 6 تكرارات كاملة!</strong>
-      </p>
-      <p>
-        الجولة التي يظن اللاعب أنها وصلت إلى قمة الصعوبة بمعدل (9/10) كانت في الواقع بمستوى شدة لا يتجاوز (4/10). ونتيجة لذلك، ينهي المتدرب جولته قبل أن تدخل العضلة أصلاً في نافذة التفعيل العصبي الحقيقي.
-      </p>
-
-      <div class="golden-rule-card">
-        <h3>🎯 المعيار الذهبي لضبط الشدة: قاعدة تباطؤ البار</h3>
         <p>
-          العلامة البيولوجية الأصدق على اقترابك من الفشل الفعال ليست الصراخ أو الحرقان، بل هي <strong>التباطؤ اللاإرادي لسرعة حركة الوزن (Involuntary Velocity Loss)</strong>. عندما تبذل أقصى ما لديك ومع ذلك تجد سرعة صعود الوزن تتباطأ في آخر تكرارين، فأنت في منطقة النمو المثالي (2 RIR).
+          عندما تؤدي تكرارات سريعة بأوزان غير مناسبة، يؤدي تراكم حمض اللاكتيك في الأنسجة إلى إحساس بحرقان شديد في العضلة، إلى جانب ضيق التنفس وتسارع نبضات القلب. هذا المزيج يخدع جهازك العصبي المركزي بأنك حققت إنجازاً بدنياً خارقاً، بينما الحقيقة البيولوجية أن الألياف المسؤولة عن الضخامة لم تتعرض للشد المطلوب لإطلاق إشارة التخليق العضلي (Muscle Protein Synthesis).
         </p>
-      </div>
 
-      <h2>4. التكلفة الطبية الباهظة لإصابات التكنيك الرديء</h2>
-      <p>
-        الخطأ الأخطر الذي يرتكبه كثيرون هو الاستمرار في التكرار بعد "الفشل الفني" (Technical Breakdown)، واستخدام قوة الدفع والأرجحة. في هذه اللحظة تتخلى العضلة عن حمل الوزن، ويتحول الضغط الميكانيكي بأكمله نحو الأوتار والأربطة والغضاريف.
-      </p>
+        <!-- Comparison Matrix -->
+        <div class="comparison-grid">
+          <div class="comparison-col bad-col">
+            <div class="col-head bad-head">❌ فخ الجولات المهدرة (Junk Sets)</div>
+            <ul class="points-list">
+              <li>⚡ 15 إلى 20 تكراراً سريعاً بأوزان خفيفة أو متوسطة</li>
+              <li>🔥 إحساس بحرقة شديدة وتراكم اللاكتيك (إشارة وهمية)</li>
+              <li>💦 تعرق وإرهاق قلبي تنفسي مرتفع جداً</li>
+              <li>🛑 صفر تحفيز للألياف العضلية السريعة (Type IIx)</li>
+              <li>⚠️ إجهاد تراكمي للمفاصل والأوتار بلا فائدة</li>
+            </ul>
+          </div>
+          <div class="comparison-col good-col">
+            <div class="col-head good-head">✅ منطقة التضخيم الفعال (Hypertrophy Zone)</div>
+            <ul class="points-list">
+              <li>🎯 6 إلى 12 تكراراً محسوباً بوزن يحقق الشد المطلوب</li>
+              <li>🛡️ توتر ميكانيكي حقيقي ومستمر على الجسور البروتينية</li>
+              <li>⏸️ التوقف قبل الفشل العضلي بتكرار إلى تكرارين فقط (1-2 RIR)</li>
+              <li>🚀 تحفيز جيني كامل لتضخيم الألياف الليفية الدائمة</li>
+              <li>🧘‍♂️ استشفاء أسرع وأمان تام للأوتار والغضاريف</li>
+            </ul>
+          </div>
+        </div>
 
-      <!-- Medical Costs Table -->
-      <div class="medical-table-container">
-        <h3>🏥 متوسط تكاليف علاج الجراحات الرياضية الناتجة عن أخطاء الجيم (2026)</h3>
-        <p class="table-subtext">أرقام تقديرية مستخلصة من بيانات مراكز جراحة العظام والطب الرياضي ومطالبات التأمين الصحي:</p>
-        <div class="table-responsive">
-          <table class="cost-table">
-            <thead>
-              <tr>
-                <th>نوع الإصابة الجراحية</th>
-                <th>فترة التأهيل الطبي</th>
-                <th>التكلفة بدون تأمين (الدفع المباشر)</th>
-                <th>التكلفة مع التغطية التأمينية</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>تمزق أوتار الكتف المدورة (Rotator Cuff)</strong></td>
-                <td>4 – 6 أشهر</td>
-                <td>$9,000 – $24,000 (35,000 – 90,000 ر.س)</td>
-                <td>$1,500 – $4,500 (5,500 – 16,000 ر.س)</td>
-              </tr>
-              <tr>
-                <td><strong>الانزلاق الغضروفي القطني (Herniated Disc)</strong></td>
-                <td>6 – 12 شهراً</td>
-                <td>$14,000 – $38,000 (50,000 – 140,000 ر.س)</td>
-                <td>$2,200 – $6,500 (8,000 – 24,000 ر.س)</td>
-              </tr>
-              <tr>
-                <td><strong>إعادة بناء الرباط الصليبي للركبة (ACL Tear)</strong></td>
-                <td>9 – 18 شهراً</td>
-                <td>$20,000 – $50,000 (75,000 – 190,000 ر.س)</td>
-                <td>$3,000 – $8,000 (11,000 – 30,000 ر.س)</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="science-note-box">
+          <h4>💡 هل تعلم؟</h4>
+          <p>
+            تكرار التمرين الرديء لا يبني سنتيمتراً واحداً من العضلات الإضافية، بل يستنزف مدخرات الجليكوجين ويجبر الكبد على تكسير الأحماض الأمينية للحصول على الطاقة، مما قد يؤدي في الحقيقة إلى هدم النسيج العضلي بدلاً من بنائه!
+          </p>
         </div>
       </div>
 
-      <h2>5. القواعد الخمس الذهبية لأقصى نمو عضلي بأقل وقت</h2>
-      <div class="rules-stack">
-        <div class="rule-item">
-          <div class="rule-num">1</div>
-          <div class="rule-content">
-            <h4>التحكم في النزول السلبي (Eccentric Control)</h4>
-            <p>اهبط بالوزن في 3 ثوانٍ كاملة، ثم اثبت لجزء من الثانية، وادفع بقوة وتحكم. نصف تحفيز النمو يحدث أثناء مرحلة التمدد تحت الحمل.</p>
-          </div>
+      <!-- High-CTR Pulsing Green CTA for Part 1 -->
+      <div class="cta-wrapper" id="cta-block-1">
+        <div class="teaser-hook">
+          <span class="teaser-icon">👇</span>
+          <strong>في الصفحة التالية:</strong> اكتشف حقيقة وهم "البامب" المؤقت ولماذا يخطئ 90% من المتدربين في قياس الفشل العضلي بفارق 5 تكرارات!
         </div>
-        <div class="rule-item">
-          <div class="rule-num">2</div>
-          <div class="rule-content">
-            <h4>تقليل الجولات ورفع جودتها (Quality Over Quantity)</h4>
-            <p>3 إلى 4 جولات عالية التركيز والانضباط كافية تماماً لكل مجموعة عضلية، واستبدل 8 إلى 10 جولات عشوائية مجهدة وغير نافعة.</p>
-          </div>
+        <button type="button" class="snb-green-btn" onclick="revealPart(2)">
+          <span>انتقل للمرحلة 2: الميكانيكا الحيوية ووهم البامب &larr;</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PART 2: الميكانيكا الحيوية وفخ الـ RIR -->
+    <!-- ========================================== -->
+    <section id="part-2" class="page-part">
+      <div class="part-banner">
+        <span class="part-badge">المرحلة 2 من 3</span>
+        <h2>قوانين الميكانيكا الحيوية وفخ القرب من الفشل العضلي</h2>
+      </div>
+
+      <div class="content-body">
+        <h2>2. قانون الميكانيكا الحيوية: التوتر الميكانيكي مقابل وهم "البامب"</h2>
+        <p>
+          تضخيم العضلات لا يخضع لمقدار الألم أو التعرق، بل يحكمه قانون فيزيائي صارم هو <strong>التوتر الميكانيكي (Mechanical Tension)</strong> — وهو مقدار الشد المقاوم الذي تواجهه خيوط الأكتين والمايوسين داخل الليفة العضلية.
+        </p>
+        <div class="science-note-box">
+          <h4>🔬 ما هو "البامب" (Pump) في المنظور الإكلينيكي؟</h4>
+          <p>
+            الانتفاخ وبروز العروق الذي يشعر به المتدرب عقب التكرارات الكثيرة يسمى طبياً بـ <em>احتقان السوائل الخلوي (Sarcoplasmic Edema)</em>. إنه مجرد تجمع عابر للدم والسوائل يزول تلقائياً بعد 60 إلى 90 دقيقة من انتهاء التمرين ولا يعني حدوث نمو دائم. الضخامة الحقيقية المستمرة (Myofibrillar Hypertrophy) تتطلب وزناً كافياً يجبر المخ على تجنيد أعلى مستويات الألياف الحركية.
+          </p>
         </div>
-        <div class="rule-item">
-          <div class="rule-num">3</div>
-          <div class="rule-content">
-            <h4>فترات الراحة الكافية بين الجولات</h4>
-            <p>امنح جسمك من 2.5 إلى 3 دقائق راحة في التمارين المركبة الحرة، و90 ثانية لتمارين العزل على الأجهزة، حتى يستعيد جهازك العصبي طاقته بالكامل.</p>
-          </div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">4</div>
-          <div class="rule-content">
-            <h4>الزيادة التدريجية المدروسة (Progressive Overload)</h4>
-            <p>لا تتسرع في مضاعفة الأوزان؛ إضافة 1 إلى 2 كجم أو تكرار إضافي واحد كل 10 إلى 14 يوماً يضمن نمواً مستمراً بدون خطر الإصابة.</p>
-          </div>
-        </div>
-        <div class="rule-item">
-          <div class="rule-num">5</div>
-          <div class="rule-content">
-            <h4>الصرامة المطلقة في التكنيك</h4>
-            <p>أوقف الجولة على الفور في اللحظة التي تضطر فيها لتغيير مسار الحركة أو استخدام عضلات مساعدة لرفع الوزن.</p>
-          </div>
+
+        <h2>3. فخ التكرارات المتبقية (RIR): لماذا تظن أنك قريب من الفشل وأنت بعيد؟</h2>
+        <p>
+          في دراسة حديثة أُجريت على مئات المتدربين باستخدام التخطيط العضلي الكهربائي (EMG)، تبيّن أن 90% من رواد الجيم يخطئون في تقدير مدى قربهم من الفشل العضلي بفارق <strong>4 إلى 6 تكرارات كاملة!</strong>
+        </p>
+        <p>
+          الجولة التي يظن اللاعب أنها وصلت إلى قمة الصعوبة بمعدل (9/10) كانت في الواقع بمستوى شدة لا يتجاوز (4/10). ونتيجة لذلك، ينهي المتدرب جولته قبل أن تدخل العضلة أصلاً في نافذة التفعيل العصبي الحقيقي.
+        </p>
+
+        <div class="golden-rule-card">
+          <h3>🎯 المعيار الذهبي لضبط الشدة: قاعدة تباطؤ البار</h3>
+          <p>
+            العلامة البيولوجية الأصدق على اقترابك من الفشل الفعال ليست الصراخ أو الحرقان، بل هي <strong>التباطؤ اللاإرادي لسرعة حركة الوزن (Involuntary Velocity Loss)</strong>. عندما تبذل أقصى ما لديك ومع ذلك تجد سرعة صعود الوزن تتباطأ في آخر تكرارين، فأنت في منطقة النمو المثالي (2 RIR).
+          </p>
         </div>
       </div>
 
-      <!-- Action Navigation Footer -->
-      <div class="article-footer-cta">
-        <h3>اكتشف المزيد من أحدث المقالات والحقائق العالمية</h3>
-        <p>تابع قراءاتنا المعمقة في التكنولوجيا، الطاقة، الاقتصاد والعلوم في منصة QuoteShield Global News.</p>
-        <a href="/news/" class="btn btn-primary">تصفح منصة الأخبار والحقائق &larr;</a>
+      <!-- High-CTR Pulsing Green CTA for Part 2 -->
+      <div class="cta-wrapper" id="cta-block-2">
+        <div class="teaser-hook">
+          <span class="teaser-icon">👇</span>
+          <strong>في الصفحة الثالثة والأخيرة:</strong> التكاليف الطبية الخيالية لإصابات التكنيك الرديء + القواعد الذهبية الخمس لتضخيم نقي بدون إصابات!
+        </div>
+        <button type="button" class="snb-green-btn" onclick="revealPart(3)">
+          <span>انتقل للمرحلة 3: تكاليف الإصابات والبروتوكول النهائي &larr;</span>
+        </button>
       </div>
-    </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PART 3: مخاطر الإصابات والقواعد الذهبية -->
+    <!-- ========================================== -->
+    <section id="part-3" class="page-part">
+      <div class="part-banner">
+        <span class="part-badge">المرحلة 3 من 3 (الخلاصة والبروتوكول)</span>
+        <h2>التكلفة الطبية لإصابات التكنيك والقواعد الذهبية الخمس</h2>
+      </div>
+
+      <div class="content-body">
+        <h2>4. التكلفة الطبية الباهظة لإصابات التكنيك الرديء</h2>
+        <p>
+          الخطأ الأخطر الذي يرتكبه كثيرون هو الاستمرار في التكرار بعد "الفشل الفني" (Technical Breakdown)، واستخدام قوة الدفع والأرجحة. في هذه اللحظة تتخلى العضلة عن حمل الوزن، ويتحول الضغط الميكانيكي بأكمله نحو الأوتار والأربطة والغضاريف.
+        </p>
+
+        <!-- Medical Costs Table -->
+        <div class="medical-table-container">
+          <h3>🏥 متوسط تكاليف علاج الجراحات الرياضية الناتجة عن أخطاء الجيم (2026)</h3>
+          <p class="table-subtext">أرقام تقديرية مستخلصة من بيانات مراكز جراحة العظام والطب الرياضي ومطالبات التأمين الصحي:</p>
+          <div class="table-responsive">
+            <table class="cost-table">
+              <thead>
+                <tr>
+                  <th>نوع الإصابة الجراحية</th>
+                  <th>فترة التأهيل الطبي</th>
+                  <th>التكلفة بدون تأمين (الدفع المباشر)</th>
+                  <th>التكلفة مع التغطية التأمينية</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>تمزق أوتار الكتف المدورة (Rotator Cuff)</strong></td>
+                  <td>4 – 6 أشهر</td>
+                  <td>$9,000 – $24,000 (35,000 – 90,000 ر.س)</td>
+                  <td>$1,500 – $4,500 (5,500 – 16,000 ر.س)</td>
+                </tr>
+                <tr>
+                  <td><strong>الانزلاق الغضروفي القطني (Herniated Disc)</strong></td>
+                  <td>6 – 12 شهراً</td>
+                  <td>$14,000 – $38,000 (50,000 – 140,000 ر.س)</td>
+                  <td>$2,200 – $6,500 (8,000 – 24,000 ر.س)</td>
+                </tr>
+                <tr>
+                  <td><strong>إعادة بناء الرباط الصليبي للركبة (ACL Tear)</strong></td>
+                  <td>9 – 18 شهراً</td>
+                  <td>$20,000 – $50,000 (75,000 – 190,000 ر.س)</td>
+                  <td>$3,000 – $8,000 (11,000 – 30,000 ر.س)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h2>5. القواعد الخمس الذهبية لأقصى نمو عضلي بأقل وقت</h2>
+        <div class="rules-stack">
+          <div class="rule-item">
+            <div class="rule-num">1</div>
+            <div class="rule-content">
+              <h4>التحكم في النزول السلبي (Eccentric Control)</h4>
+              <p>اهبط بالوزن في 3 ثوانٍ كاملة، ثم اثبت لجزء من الثانية، وادفع بقوة وتحكم. نصف تحفيز النمو يحدث أثناء مرحلة التمدد تحت الحمل.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-num">2</div>
+            <div class="rule-content">
+              <h4>تقليل الجولات ورفع جودتها (Quality Over Quantity)</h4>
+              <p>3 إلى 4 جولات عالية التركيز والانضباط كافية تماماً لكل مجموعة عضلية، واستبدل 8 إلى 10 جولات عشوائية مجهدة وغير نافعة.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-num">3</div>
+            <div class="rule-content">
+              <h4>فترات الراحة الكافية بين الجولات</h4>
+              <p>امنح جسمك من 2.5 إلى 3 دقائق راحة في التمارين المركبة الحرة، و90 ثانية لتمارين العزل على الأجهزة، حتى يستعيد جهازك العصبي طاقته بالكامل.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-num">4</div>
+            <div class="rule-content">
+              <h4>الزيادة التدريجية المدروسة (Progressive Overload)</h4>
+              <p>لا تتسرع في مضاعفة الأوزان؛ إضافة 1 إلى 2 كجم أو تكرار إضافي واحد كل 10 إلى 14 يوماً يضمن نمواً مستمراً بدون خطر الإصابة.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-num">5</div>
+            <div class="rule-content">
+              <h4>الصرامة المطلقة في التكنيك</h4>
+              <p>أوقف الجولة على الفور في اللحظة التي تضطر فيها لتغيير مسار الحركة أو استخدام عضلات مساعدة لرفع الوزن.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Navigation Footer -->
+        <div class="article-footer-cta">
+          <h3>تهانينا! لقد أتممت الدليل العلمي الكامل لتضخيم العضلات 🏆</h3>
+          <p>اكتشف المزيد من المقالات والحقائق العالمية عبر منصة QuoteShield Global News.</p>
+          <a href="/news/" class="btn btn-primary">تصفح منصة الأخبار والحقائق &larr;</a>
+        </div>
+      </div>
+    </section>
   </article>
+
+  <!-- Interactive 0.00ms Drop-Down Pagination Engine -->
+  <script is:inline>
+    function revealPart(partNum) {
+      // Hide current cta block
+      const prevCta = document.getElementById('cta-block-' + (partNum - 1));
+      if (prevCta) {
+        prevCta.style.display = 'none';
+      }
+
+      // Show target part
+      const targetPart = document.getElementById('part-part-' + partNum) || document.getElementById('part-' + partNum);
+      if (targetPart) {
+        targetPart.classList.add('active-part');
+        
+        // Update tracker UI
+        const node = document.getElementById('step-node-' + partNum);
+        if (node) node.classList.add('active');
+        const line = document.getElementById('step-line-' + (partNum - 1));
+        if (line) line.classList.add('active');
+
+        // Smooth scroll to top of revealed part
+        setTimeout(() => {
+          targetPart.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 80);
+
+        // Update URL state silently without full page reload
+        try {
+          window.history.pushState({ page: partNum }, '', window.location.pathname + '?page=' + partNum);
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'page_view', { page_path: window.location.pathname + '?page=' + partNum });
+          }
+        } catch (e) {
+          // ignore state error
+        }
+      }
+    }
+
+    // Auto open if user visited with ?page=X directly
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const page = parseInt(params.get('page'), 10);
+      if (page >= 2) {
+        revealPart(2);
+      }
+      if (page >= 3) {
+        revealPart(3);
+      }
+    });
+  </script>
 </BaseLayout>
 
 <style>
@@ -239,8 +367,116 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     color: #64748b;
     border-bottom: 2px solid #f1f5f9;
     padding-bottom: 1.75rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
+  }
+
+  /* Progress Tracker */
+  .pagination-tracker {
+    margin-bottom: 2.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    padding: 1rem 1.5rem;
+  }
+
+  .tracker-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .step-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    opacity: 0.45;
+    transition: opacity 0.3s ease;
+  }
+
+  .step-node.active {
+    opacity: 1;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    color: #0f172a;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .step-node.active .step-num {
+    background: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #334155;
+    white-space: nowrap;
+  }
+
+  .step-line {
+    flex-grow: 1;
+    height: 3px;
+    background: #e2e8f0;
+    margin: 0 0.75rem 1rem;
+    border-radius: 999px;
+  }
+
+  .step-line.active {
+    background: #16a34a;
+  }
+
+  /* Page Parts Architecture */
+  .page-part {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .page-part.active-part {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .part-banner {
+    background: #eff6ff;
+    border-right: 4px solid #2563eb;
+    padding: 1.5rem 1.75rem;
+    border-radius: var(--radius-md);
+    margin: 3rem 0 2rem;
+  }
+
+  .part-badge {
+    display: inline-block;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.5rem;
+  }
+
+  .part-banner h2 {
+    margin: 0;
+    font-size: 1.45rem;
+    color: #1e3a8a;
   }
 
   /* Stat Callout Hero */
@@ -501,6 +737,61 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-size: 0.95rem;
     color: #475569;
     line-height: 1.6;
+  }
+
+  /* High-CTR Pulsing Green CTA */
+  .cta-wrapper {
+    margin: 3.5rem 0 2rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: #f0fdf4;
+    border: 2px dashed #86efac;
+    border-radius: var(--radius-lg);
+  }
+
+  .teaser-hook {
+    font-size: 1.05rem;
+    color: #166534;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .teaser-icon {
+    display: inline-block;
+    font-size: 1.4rem;
+    margin-left: 0.35rem;
+  }
+
+  .snb-green-btn {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+    color: #ffffff !important;
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    font-weight: 900;
+    padding: 1.25rem 2rem;
+    border-radius: 14px;
+    border: 2px solid #86efac;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.4);
+    animation: pulse-green 2s infinite ease-in-out;
+    transition: transform 0.2s ease;
+    font-family: inherit;
+  }
+
+  .snb-green-btn:hover {
+    transform: scale(1.02);
+  }
+
+  @keyframes pulse-green {
+    0% { transform: scale(1); box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4); }
+    50% { transform: scale(1.03); box-shadow: 0 8px 32px rgba(16, 185, 129, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4); }
   }
 
   /* Footer CTA */
