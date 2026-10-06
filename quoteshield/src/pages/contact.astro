@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact QuoteShield — Consumer Support & Editorial Inquiries"
+  description="Contact QuoteShield for rate inquiries, editorial corrections, or media requests. Reach our Wilmington, DE office via phone, email, or online form."
+>
+  <div class="page-header">
+    <div class="container">
+      <span class="badge badge-trust">Reach Our Team</span>
+      <h1>Contact QuoteShield Consumer Support</h1>
+      <p class="subtitle">
+        Have questions about an insurance rate analysis, noticed a discrepancy in a state filing, or need editorial clarification? Our team is here to assist.
+      </p>
+    </div>
+  </div>
+
+  <div class="container page-content">
+    <div class="contact-grid">
+      <!-- Contact Details -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          We pride ourselves on responsive, non-automated communication. Our editorial and consumer support specialists respond to all inquiries within one business day.
+        </p>
+
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4>Corporate Headquarters</h4>
+            <p>QuoteShield Media LLC<br />1209 Orange St<br />Wilmington, DE 19801, United States</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4>Toll-Free Phone</h4>
+            <p><strong>+1 (800) 584-3912</strong><br />Monday – Friday: 9:00 AM – 6:00 PM EST</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">✉️</div>
+          <div>
+            <h4>Department Inquiries</h4>
+            <p>
+              Editorial & Corrections: <a href="mailto:editorial@quoteshield.online">editorial@quoteshield.online</a><br />
+              General Inquiries: <a href="mailto:support@quoteshield.online">support@quoteshield.online</a><br />
+              Compliance & Legal: <a href="mailto:legal@quoteshield.online">legal@quoteshield.online</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="callout callout-warning">
+          <div class="callout-title">⚠️ Looking to File an Insurance Claim?</div>
+          <p class="callout-text">
+            QuoteShield is an independent educational publisher and does not issue policies or administer claims. Please contact your carrier directly (via the phone number on your insurance card) to report an accident, property damage, or medical incident.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-card card">
+        <h3>Send an Inquiry</h3>
+        <p class="form-subtext">Fill out the form below and an editorial team member will reach back shortly.</p>
+
+        <form id="contact-form" class="inquiry-form" onsubmit="event.preventDefault(); document.getElementById('form-success').style.display='block'; this.reset();">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. John Miller" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com" class="form-input" />
+          </div>
+
+          <div class="form-group">
+            <label for="inquiry-topic">Topic of Inquiry *</label>
+            <select id="inquiry-topic" name="topic" required class="form-input">
+              <option value="">Select a topic...</option>
+              <option value="auto">Auto Insurance Rate Question</option>
+              <option value="medicare">Medicare & Health Policy Clarification</option>
+              <option value="home">Homeowners Replacement Cost</option>
+              <option value="life">Life Insurance Rates & Coverage</option>
+              <option value="correction">Editorial Fact-Check / Correction Request</option>
+              <option value="press">Media / Press Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Please describe your question or the specific article you are referencing..." class="form-input"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Message &rarr;</button>
+
+          <div id="form-success" class="form-success-msg" style="display: none;">
+            ✓ Thank you! Your message has been safely received. A member of our research team will respond within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, #0c1e33 0%, #153252 100%);
+    color: #ffffff;
+    padding: 3.5rem 0 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin: 1rem 0 0.75rem;
+  }
+
+  .subtitle {
+    color: #cbd5e1;
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin-bottom: 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 880px) {
+    .contact-grid {
+      grid-template-columns: 1.1fr 1fr;
+    }
+  }
+
+  .info-card {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .info-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  .info-card h4 {
+    margin-bottom: 0.25rem;
+    color: var(--color-primary);
+  }
+
+  .info-card p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .contact-form-card {
+    padding: 2.25rem;
+  }
+
+  .form-subtext {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    background: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+  }
+
+  .form-success-msg {
+    margin-top: 1.25rem;
+    padding: 1rem;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+</style>

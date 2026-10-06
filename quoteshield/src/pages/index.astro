@@ -1,0 +1,604 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="QuoteShield — Independent Insurance Intelligence & Rate Benchmarks"
+  description="Compare 2026 auto, health, Medicare, homeowners, and life insurance rates with QuoteShield. Independent, non-commission research backed by certified insurance professionals."
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-badge">
+        <span class="badge badge-trust">🛡️ 2026 Public Rate Filing Benchmarks</span>
+      </div>
+      <h1 class="hero-title">
+        Transparent Insurance Intelligence.<br />Zero Sales Calls.
+      </h1>
+      <p class="hero-lead">
+        We analyze public rate filings from state insurance commissioners and the NAIC so you can benchmark your real costs, unlock unadvertised discounts, and avoid costly underinsurance.
+      </p>
+
+      <!-- Quick Interactive Category Hub -->
+      <div class="category-cards-grid">
+        <a href="/guides/auto-insurance/" class="category-card">
+          <div class="cat-icon">🚗</div>
+          <h3>Auto Insurance</h3>
+          <p>National benchmarks, state matrices & cheap carrier audits.</p>
+          <span class="cat-link">Compare Rates &rarr;</span>
+        </a>
+
+        <a href="/guides/health-insurance/" class="category-card">
+          <div class="cat-icon">🏥</div>
+          <h3>Health & Medicare</h3>
+          <p>Medicare Advantage vs Medigap Plan G and open enrollment rules.</p>
+          <span class="cat-link">Compare Plans &rarr;</span>
+        </a>
+
+        <a href="/guides/home-insurance/" class="category-card">
+          <div class="cat-icon">🏡</div>
+          <h3>Homeowners</h3>
+          <p>Replacement cost vs market value & storm deductibles.</p>
+          <span class="cat-link">Calculate Costs &rarr;</span>
+        </a>
+
+        <a href="/guides/life-insurance/" class="category-card">
+          <div class="cat-icon">🛡️</div>
+          <h3>Life Insurance</h3>
+          <p>Term vs whole life actuarial costs by age & coverage sizing.</p>
+          <span class="cat-link">Explore Terms &rarr;</span>
+        </a>
+
+        <a href="/guides/commercial-insurance/" class="category-card">
+          <div class="cat-icon">🏢</div>
+          <h3>Small Business</h3>
+          <p>General liability $1M/$2M limits, BOP bundles & workers' comp.</p>
+          <span class="cat-link">Commercial Guide &rarr;</span>
+        </a>
+
+        <a href="/tools/" class="category-card highlight-tool-card">
+          <div class="cat-icon">🧮</div>
+          <h3>Decision Calculators</h3>
+          <p>Interactive auto savings & DIME life insurance estimators.</p>
+          <span class="cat-link">Launch Tools &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Stats Banner -->
+  <section class="trust-banner">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <span class="trust-num">50+</span>
+        <span class="trust-txt">Top Carriers Analyzed</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">120K+</span>
+        <span class="trust-txt">State Rate Filings Benchmarked</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">100%</span>
+        <span class="trust-txt">Independent & Unbiased</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">0</span>
+        <span class="trust-txt">Telemarketing Robocalls</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Intelligence Guides -->
+  <section class="container section-padding">
+    <div class="section-header-row">
+      <div>
+        <span class="badge badge-primary">Deep Dive Research</span>
+        <h2>Featured Insurance Intelligence & Rate Guides</h2>
+        <p class="section-subtext">Actionable, data-backed guides reviewed by credentialed underwriters and financial planners.</p>
+      </div>
+    </div>
+
+    <div class="guides-grid">
+      <!-- Guide Card 1 -->
+      <article class="guide-card card">
+        <div class="guide-tag">Auto Insurance</div>
+        <h3><a href="/guides/auto-insurance/">Car Insurance Rates in 2026: Complete National Benchmark & Carrier Cost Analysis</a></h3>
+        <p>Full breakdown of national averages ($2,388/yr full coverage vs $784/yr minimum), carrier rate spreads, and top discount levers.</p>
+        <div class="guide-meta">
+          <span>Reviewed by Marcus Vance, CPCU</span>
+          <a href="/guides/auto-insurance/" class="read-more">Read Guide &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Guide Card 2 -->
+      <article class="guide-card card">
+        <div class="guide-tag">Medicare & Health</div>
+        <h3><a href="/guides/health-insurance/">Medicare Advantage vs. Medigap (Plan G & Plan N) in 2026: Definitive Guide</a></h3>
+        <p>The true trade-offs between $0 premium Advantage HMO/PPO plans and unrestricted doctor freedom with Medigap Plan G.</p>
+        <div class="guide-meta">
+          <span>Reviewed by David Sterling, CLU</span>
+          <a href="/guides/health-insurance/" class="read-more">Read Guide &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Guide Card 3 -->
+      <article class="guide-card card">
+        <div class="guide-tag">Homeowners</div>
+        <h3><a href="/guides/home-insurance/">Homeowners Insurance Cost Breakdown: Replacement Cost vs. Market Value</a></h3>
+        <p>Why insuring your home based on market price is a costly mistake, and three essential endorsements every homeowner needs.</p>
+        <div class="guide-meta">
+          <span>Reviewed by Marcus Vance, CPCU</span>
+          <a href="/guides/home-insurance/" class="read-more">Read Guide &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Guide Card 4 -->
+      <article class="guide-card card">
+        <div class="guide-tag">Life Insurance</div>
+        <h3><a href="/guides/life-insurance/">Term vs. Whole Life Insurance: Comprehensive Cost Comparison & Rate Benchmark</a></h3>
+        <p>Actuarial monthly premium tables across ages 25 to 65, cash value fee realities, and the "Buy Term and Invest the Difference" math.</p>
+        <div class="guide-meta">
+          <span>Reviewed by Elena Rostova, CFP®</span>
+          <a href="/guides/life-insurance/" class="read-more">Read Guide &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Guide Card 5 -->
+      <article class="guide-card card">
+        <div class="guide-tag">State Rates</div>
+        <h3><a href="/guides/state-car-insurance-averages/">Car Insurance Rates by State in 2026: 50-State Ranking & Cost Matrix</a></h3>
+        <p>Interactive table comparing Maine ($1,170/yr) to Florida ($3,640/yr), no-fault tort systems, and uninsured motorist contagion.</p>
+        <div class="guide-meta">
+          <span>Reviewed by Marcus Vance, CPCU</span>
+          <a href="/guides/state-car-insurance-averages/" class="read-more">Read Guide &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Guide Card 6 -->
+      <article class="guide-card card">
+        <div class="guide-tag">Commercial</div>
+        <h3><a href="/guides/commercial-insurance/">Small Business General Liability Insurance: Costs, Limits & BOP Bundles</a></h3>
+        <p>Understand the standard $1M/$2M occurrence limit, class code costs by industry, and how Business Owner's Policies save 20%.</p>
+        <div class="guide-meta">
+          <span>Reviewed by Marcus Vance, CPCU</span>
+          <a href="/guides/commercial-insurance/" class="read-more">Read Guide &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Interactive Calculators Feature Section -->
+  <section class="calculator-promo-section">
+    <div class="container promo-grid">
+      <div class="promo-text">
+        <span class="badge badge-trust">Client-Side Privacy</span>
+        <h2>Try Our Free Interactive Insurance Decision Tools</h2>
+        <p>
+          We built our calculators so you can simulate your options in complete privacy. No contact forms, no phone numbers required, and zero telemarketer harassment.
+        </p>
+        <div class="promo-actions">
+          <a href="/tools/auto-savings-calculator/" class="btn btn-primary">Auto Savings Calculator</a>
+          <a href="/tools/life-insurance-calculator/" class="btn btn-secondary">Life Coverage Estimator</a>
+        </div>
+      </div>
+      <div class="promo-features card">
+        <div class="feature-row">
+          <div class="feat-icon">🎯</div>
+          <div>
+            <h4>State-Specific Actuarial Modeling</h4>
+            <p>Calculates rate adjustments based on your state's actual statutory loss ratio.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feat-icon">🔒</div>
+          <div>
+            <h4>100% In-Browser Computation</h4>
+            <p>Your inputs remain on your device and are never sent to a marketing server.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="feat-icon">💡</div>
+          <div>
+            <h4>Actionable Discount Playbooks</h4>
+            <p>Learn exactly what levers to request when speaking with a licensed agent.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Rate Insurers Section -->
+  <section class="container section-padding">
+    <div class="methodology-intro">
+      <span class="badge badge-primary">E-E-A-T Standards</span>
+      <h2>Our Independent Carrier Rating Framework</h2>
+      <p>
+        QuoteShield does not sell carrier rankings or allow insurers to sponsor their scores. Every underwriter is measured against our strict 5-pillar standard:
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-box">
+        <span class="pillar-num">25%</span>
+        <h4>Financial Solvency</h4>
+        <p>AM Best, S&P, and Fitch ratings guaranteeing catastrophe claim-paying capacity.</p>
+      </div>
+      <div class="pillar-box">
+        <span class="pillar-num">25%</span>
+        <h4>Claim Satisfaction</h4>
+        <p>NAIC National Complaint Index and J.D. Power verified consumer satisfaction surveys.</p>
+      </div>
+      <div class="pillar-box">
+        <span class="pillar-num">20%</span>
+        <h4>Coverage Breadth</h4>
+        <p>Endorsement flexibility (OEM parts, accident forgiveness, water backup, umbrella).</p>
+      </div>
+      <div class="pillar-box">
+        <span class="pillar-num">20%</span>
+        <h4>Price Competitiveness</h4>
+        <p>Public SERFF rate filings evaluated across multiple risk and demographic brackets.</p>
+      </div>
+      <div class="pillar-box">
+        <span class="pillar-num">10%</span>
+        <h4>Digital Experience</h4>
+        <p>Mobile claim submission speed, digital policy management, and 24/7 service.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero-section {
+    background: linear-gradient(135deg, #0c1e33 0%, #153252 100%);
+    color: #ffffff;
+    padding: 4.5rem 0 3.5rem;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-container {
+    max-width: 1140px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    color: #ffffff;
+    font-size: 3rem;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.03em;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.15rem;
+    }
+  }
+
+  .hero-lead {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    max-width: 780px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+  }
+
+  .category-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  @media (min-width: 600px) {
+    .category-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .category-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .category-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .category-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+  }
+
+  .highlight-tool-card {
+    background: rgba(5, 150, 105, 0.12);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .cat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .category-card h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .category-card p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .cat-link {
+    color: #34d399;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  /* Trust Banner */
+  .trust-banner {
+    background: #091524;
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.75rem 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .trust-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .trust-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: 1.1;
+  }
+
+  .trust-txt {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Section Padding */
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  .section-header-row {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-subtext {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 650px;
+    margin-top: 0.5rem;
+  }
+
+  /* Guides Grid */
+  .guides-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .guides-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .guides-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+  }
+
+  .guide-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.65rem;
+  }
+
+  .guide-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .guide-card h3 a {
+    color: var(--color-primary);
+  }
+
+  .guide-card h3 a:hover {
+    color: var(--color-accent);
+  }
+
+  .guide-card p {
+    font-size: 0.925rem;
+    color: var(--color-text-secondary);
+    flex: 1;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .guide-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .read-more {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  /* Calculator Promo Section */
+  .calculator-promo-section {
+    background: #f1f5f9;
+    padding: 4.5rem 0;
+    margin-top: 3rem;
+  }
+
+  .promo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 860px) {
+    .promo-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+
+  .promo-text h2 {
+    font-size: 2.25rem;
+    margin: 0.75rem 0 1rem;
+  }
+
+  .promo-text p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  .promo-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .promo-features {
+    padding: 2rem;
+  }
+
+  .feature-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .feat-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  .feature-row h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .feature-row p {
+    font-size: 0.875rem;
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+
+  /* Pillars */
+  .methodology-intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .methodology-intro h2 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .pillars-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pillars-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .pillar-box {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .pillar-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .pillar-box h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar-box p {
+    font-size: 0.825rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>

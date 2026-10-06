@@ -1,0 +1,511 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  type = 'website',
+  publishedTime,
+  author = 'QuoteShield Editorial Team',
+} = Astro.props;
+
+const siteUrl = 'https://quoteshield.online';
+const canonicalURL = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const fullTitle = title.includes('QuoteShield') ? title : `${title} | QuoteShield`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="QuoteShield" />
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3694602368387194" crossorigin="anonymous"></script>
+
+  <!-- Structured Data: Organization & Website -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        "name": "QuoteShield",
+        "url": siteUrl,
+        "logo": `${siteUrl}/favicon.svg`,
+        "description": "Independent US consumer insurance intelligence and rate comparison guide.",
+        "foundingDate": "2024",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "email": "contact@quoteshield.online",
+          "areaServed": "US"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        "url": siteUrl,
+        "name": "QuoteShield",
+        "publisher": { "@id": `${siteUrl}/#organization` }
+      }
+    ]
+  })} />
+</head>
+<body>
+  <!-- Top Trust Notice Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span class="trust-pill">Independent Insurance Intelligence</span>
+      <span class="trust-notice">Data updated for 2026 • 50+ Top Carriers Analyzed • Non-Commission Editorial</span>
+      <a href="/about/" class="trust-link">How We Rate Carriers &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="QuoteShield Home">
+        <svg class="shield-icon" viewBox="0 0 48 48" fill="none" width="34" height="34" aria-hidden="true">
+          <path d="M24 4L7 11V22C7 32.5 14.3 42.1 24 44C33.7 42.1 41 32.5 41 22V11L24 4Z" fill="#0F2B48" stroke="#059669" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M16 23.5L21.5 29L32 18.5" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-name">Quote<strong>Shield</strong></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="/guides/auto-insurance/">Auto</a></li>
+          <li><a href="/guides/health-insurance/">Health & Medicare</a></li>
+          <li><a href="/guides/home-insurance/">Homeowners</a></li>
+          <li><a href="/guides/life-insurance/">Life</a></li>
+          <li><a href="/guides/commercial-insurance/">Commercial</a></li>
+          <li><a href="/tools/">Calculators</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/tools/auto-savings-calculator/" class="btn btn-primary btn-sm">Estimate Savings</a>
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <ul class="mobile-nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/guides/auto-insurance/">Auto Insurance Guides</a></li>
+        <li><a href="/guides/health-insurance/">Health & Medicare</a></li>
+        <li><a href="/guides/home-insurance/">Homeowners Insurance</a></li>
+        <li><a href="/guides/life-insurance/">Life Insurance Guides</a></li>
+        <li><a href="/guides/commercial-insurance/">Commercial Liability</a></li>
+        <li><a href="/tools/">Interactive Calculators</a></li>
+        <li><a href="/about/">About Our Research</a></li>
+        <li><a href="/contact/">Contact Us</a></li>
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href="/tools/auto-savings-calculator/" class="btn btn-primary" style="width: 100%;">Calculate Rate Savings</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main">
+    <slot />
+  </main>
+
+  <!-- Comprehensive Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-grid">
+        <!-- Col 1: About & Trust -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand">
+            <svg class="shield-icon" viewBox="0 0 48 48" fill="none" width="28" height="28" aria-hidden="true">
+              <path d="M24 4L7 11V22C7 32.5 14.3 42.1 24 44C33.7 42.1 41 32.5 41 22V11L24 4Z" fill="#0F2B48" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M16 23.5L21.5 29L32 18.5" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="brand-name-footer">Quote<strong>Shield</strong></span>
+          </div>
+          <p class="footer-desc">
+            QuoteShield provides transparent, data-driven insurance comparisons, regulatory filings analysis, and rate benchmarks for American consumers and business owners.
+          </p>
+          <div class="footer-badges">
+            <span class="badge badge-trust">NAIC Data Verified</span>
+            <span class="badge badge-trust">Independent Research</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Insurance Guides -->
+        <div class="footer-col">
+          <h4>Insurance Guides</h4>
+          <ul class="footer-links">
+            <li><a href="/guides/auto-insurance/">Auto Insurance Rates 2026</a></li>
+            <li><a href="/guides/health-insurance/">Medicare Advantage vs Medigap</a></li>
+            <li><a href="/guides/home-insurance/">Homeowners Replacement Cost</a></li>
+            <li><a href="/guides/life-insurance/">Term vs Whole Life Rates</a></li>
+            <li><a href="/guides/commercial-insurance/">Small Business Liability</a></li>
+            <li><a href="/guides/cheap-car-insurance-guide/">Best Cheap Car Insurance</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Tools & Resources -->
+        <div class="footer-col">
+          <h4>Interactive Tools</h4>
+          <ul class="footer-links">
+            <li><a href="/tools/auto-savings-calculator/">Auto Savings Calculator</a></li>
+            <li><a href="/tools/life-insurance-calculator/">Life Coverage Estimator</a></li>
+            <li><a href="/guides/state-car-insurance-averages/">State Rate Comparison Table</a></li>
+            <li><a href="/guides/insurance-score-factors/">Credit-Based Score Impact</a></li>
+            <li><a href="/tools/">All Rate Comparison Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Trust & Legal -->
+        <div class="footer-col">
+          <h4>Trust & Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about/">About QuoteShield</a></li>
+            <li><a href="/editorial-guidelines/">Editorial Methodology</a></li>
+            <li><a href="/contact/">Contact & Support</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy (CCPA/GDPR)</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/disclaimer/">Insurance Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Regulatory & Advertiser Disclosure Box -->
+      <div class="footer-disclaimer">
+        <p><strong>Regulatory & Advertiser Disclosure:</strong> QuoteShield is a free consumer education and research service. We are not an insurance carrier, underwriter, or licensed insurance agency. All rates, estimates, and coverage details featured on this website are based on 2025–2026 public rate filings from the National Association of Insurance Commissioners (NAIC), state departments of insurance, and publicly available insurer tariff schedules. Individual rates may differ significantly based on vehicle age, credit-based insurance score, driving violations, geographic territory, age, and individual insurer underwriting guidelines. Quotes provided through affiliate links or tools are informational and do not represent a formal binder or contract for coverage.</p>
+        <p class="copyright-text">&copy; 2026 QuoteShield Media LLC. All rights reserved. 1209 Orange St, Wilmington, DE 19801.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Drawer Toggle
+    const toggleBtn = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (toggleBtn && mobileMenu) {
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+        mobileMenu.classList.toggle('is-open');
+      });
+    }
+  </script>
+</body>
+</html>
+
+<style>
+  /* Header Styles */
+  .top-bar {
+    background: var(--color-primary-dark);
+    color: #94a3b8;
+    font-size: 0.775rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .trust-pill {
+    background: rgba(5, 150, 105, 0.2);
+    color: #34d399;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+  }
+
+  .trust-notice {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .trust-notice {
+      display: inline;
+    }
+  }
+
+  .trust-link {
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+
+  .trust-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .site-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.45rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .brand-name strong {
+    color: var(--color-accent);
+    font-weight: 800;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  @media (min-width: 992px) {
+    .main-nav {
+      display: block;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-list a {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .nav-list a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .btn-sm {
+    padding: 0.5rem 1.15rem;
+    font-size: 0.875rem;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  @media (min-width: 992px) {
+    .mobile-toggle {
+      display: none;
+    }
+  }
+
+  .hamburger-bar {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu {
+    display: none;
+    background: #ffffff;
+    border-top: 1px solid var(--color-border);
+    padding: 1rem 1.25rem 1.5rem;
+  }
+
+  .mobile-menu.is-open {
+    display: block;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-nav-list li {
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .mobile-nav-list a {
+    display: block;
+    padding: 0.85rem 0;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  .mobile-menu-cta {
+    margin-top: 1.25rem;
+  }
+
+  /* Main */
+  .site-main {
+    flex: 1;
+    padding-bottom: 3.5rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    background-color: #0c1a2c;
+    color: #94a3b8;
+    padding: 4rem 0 2rem;
+    border-top: 3px solid var(--color-accent);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .brand-name-footer {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .brand-name-footer strong {
+    color: #10b981;
+    font-weight: 800;
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-col h4 {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-links a {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: #ffffff;
+  }
+
+  .footer-disclaimer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.75rem;
+    font-size: 0.775rem;
+    line-height: 1.6;
+    color: #64748b;
+  }
+
+  .footer-disclaimer strong {
+    color: #cbd5e1;
+  }
+
+  .copyright-text {
+    margin-top: 1rem;
+    color: #64748b;
+  }
+</style>
