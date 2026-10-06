@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://quoteshield.online/sitemap.xml
+Sitemap: https://quoteshield-roan.vercel.app/sitemap.xml

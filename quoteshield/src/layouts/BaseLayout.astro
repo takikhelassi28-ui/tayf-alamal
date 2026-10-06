@@ -19,7 +19,7 @@ const {
   author = 'QuoteShield Editorial Team',
 } = Astro.props;
 
-const siteUrl = 'https://quoteshield.online';
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://quoteshield-roan.vercel.app';
 const canonicalURL = canonical || new URL(Astro.url.pathname, siteUrl).href;
 const fullTitle = title.includes('QuoteShield') ? title : `${title} | QuoteShield`;
 ---
