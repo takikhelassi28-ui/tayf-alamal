@@ -17,6 +17,24 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
         أكثر من 60% من وقتك في الجيم يضيع بدون أي فائدة — إليك الحقيقة العلمية الصادمة لتضخيم العضلات
       </h1>
 
+      <!-- Top Sponsored Placement -->
+      <div class="ad-slot-wrapper">
+        <ins data-ad-format="auto" class="adsbygoogle"
+             data-ad-client="ca-pub-3694602368387194"
+             data-adsbygoogle-status="done"
+             style="display: block; margin: auto; background-color: transparent; height: 300px; width: 600px;"
+             data-ad-status="filled">
+          <div id="ad-container" tabindex="0" title="Advertisement" aria-label="Advertisement"
+               style="border: none; height: 300px; width: 600px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: visible;">
+            <iframe id="ad-iframe" name="ad-iframe" style="left:0; position:absolute; top:0; border:0; width:600px; height:300px;"
+                    sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                    width="600" height="300" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"
+                    src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-3694602368387194&amp;h=300&amp;slotname=1411512911&amp;w=600&amp;rafmt=11&amp;format=600x300&amp;url=https://eltaweba.blogspot.com/&amp;host=ca-host-pub-8544321996124660&amp;"
+                    data-google-container-id="a!2" data-load-complete="true"></iframe>
+          </div>
+        </ins>
+      </div>
+
       <p class="lead-text">
         كثير من المتدربين يقضون ساعات مرهقة في الصالات الرياضية متوهمين أن العرق وحرقة العضلات دليل على البناء، بينما تثبت الدراسات الإكلينيكية أن معظم هذا المجهود يندرج تحت ما يُعرف علمياً بـ "الحجم التدريبي المهدر" (Junk Volume).
       </p>
@@ -279,6 +297,54 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
     padding-bottom: 1.75rem;
     margin-bottom: 2.5rem;
     flex-wrap: wrap;
+  }
+
+  /* Ad Slot Placement */
+  .ad-slot-wrapper {
+    margin: 1.5rem 0 2rem;
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* On mobile (< 640px), smoothly scale the 600px desktop ad to fit 100% of the screen without cropping or scrolling */
+  @media (max-width: 640px) {
+    .ad-slot-wrapper {
+      margin: 1rem 0 1.5rem;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: calc((100vw - 24px) * 0.5);
+      max-height: 290px;
+    }
+
+    .ad-slot-wrapper ins.adsbygoogle {
+      width: 600px !important;
+      max-width: 600px !important;
+      min-width: 600px !important;
+      height: 300px !important;
+      transform-origin: top center !important;
+      transform: scale(calc((100vw - 24px) / 600)) !important;
+      margin: 0 auto !important;
+    }
+
+    .ad-slot-wrapper #ad-container {
+      width: 600px !important;
+      max-width: 600px !important;
+      min-width: 600px !important;
+      height: 300px !important;
+    }
+
+    .ad-slot-wrapper #ad-iframe {
+      width: 600px !important;
+      height: 300px !important;
+    }
   }
 
   /* Stat Callout Hero */
