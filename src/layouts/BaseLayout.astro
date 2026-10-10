@@ -13,7 +13,7 @@ const {
   ogImage = '/og-default.png',
 } = Astro.props;
 
-const siteName = 'طيف الأمل - دليل أولياء الأمور لتوحد الأطفال';
+const siteName = 'طيف الأمل | منصة إيزي سبوت EasySpot';
 const fullTitle = `${title} | ${siteName}`;
 ---
 
@@ -24,13 +24,11 @@ const fullTitle = `${title} | ${siteName}`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Google AdSense Verification & Auto Ads (Non-Blocking) -->
+    <!-- Google AdSense Verification & Auto Ads -->
     <script
       async
-      defer
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3694602368387194"
       crossorigin="anonymous"
-      fetchpriority="low"
     ></script>
 
     <!-- SEO Meta -->
@@ -61,18 +59,29 @@ const fullTitle = `${title} | ${siteName}`;
           "@type": "WebSite",
           "@id": "https://easyspot.online/#website",
           "url": "https://easyspot.online/",
-          "name": "طيف الأمل",
-          "description": "منصة التوعية والدعم لمتلازمة طيف التوحد للأسر العربية",
-          "inLanguage": "ar"
+          "name": "طيف الأمل | EasySpot",
+          "alternateName": ["EasySpot", "EasySpot Online", "طيف الأمل", "منصة طيف الأمل لدعم التوحد"],
+          "description": "منصة إيزي سبوت (EasySpot.online) — بوابة طيف الأمل للتوعية والدعم العلمي لمتلازمة طيف التوحد للأسر العربية",
+          "inLanguage": "ar",
+          "publisher": {
+            "@id": "https://easyspot.online/#organization"
+          }
         },
         {
           "@type": "Organization",
           "@id": "https://easyspot.online/#organization",
-          "name": "طيف الأمل",
+          "name": "EasySpot Media - منصة إيزي سبوت",
+          "alternateName": "طيف الأمل",
           "url": "https://easyspot.online/",
           "logo": {
             "@type": "ImageObject",
             "url": "https://easyspot.online/favicon.svg"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@easyspot.online",
+            "contactType": "customer support",
+            "availableLanguage": ["Arabic", "English"]
           }
         }
       ]
@@ -595,9 +604,9 @@ const fullTitle = `${title} | ${siteName}`;
     <header class="site-header">
       <div class="container">
         <nav class="nav">
-          <a href="/" class="nav__logo">
+          <a href="/" class="nav__logo" title="طيف الأمل - منصة إيزي سبوت EasySpot">
             <span class="nav__logo-icon">🌟</span>
-            <span class="nav__logo-text">طيف الأمل</span>
+            <span class="nav__logo-text">طيف الأمل <span style="font-size: 0.8rem; font-weight: normal; opacity: 0.8; margin-right: 0.35rem; letter-spacing: 0.5px;">• EasySpot</span></span>
           </a>
           <button class="nav__toggle" aria-label="القائمة" aria-expanded="false" type="button" id="navToggle">
             <span></span><span></span><span></span>
@@ -623,8 +632,12 @@ const fullTitle = `${title} | ${siteName}`;
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <div class="footer-logo">🌟 طيف الأمل</div>
-            <p>دليلك الموثوق لدعم طفلك في رحلة طيف التوحد — بمحتوى علمي مبسط باللغة العربية.</p>
+            <div class="footer-logo">🌟 طيف الأمل • EasySpot</div>
+            <p>منصة إيزي سبوت (EasySpot.online) — مبادرة طيف الأمل المتخصصة لدعم أسر التوحد باللغة العربية، بمحتوى علمي مراجع وأدوات تعليمية تفاعلية مستندة لأحدث الأدلة الطبية.</p>
+            <p style="font-size: 0.85rem; margin-top: 0.75rem; opacity: 0.85; line-height: 1.6;">
+              الجهة الناشرة: مؤسسة إيزي سبوت الرقمية (EasySpot Media)<br />
+              للاستفسارات والتحرير: <a href="mailto:contact@easyspot.online" style="color: inherit; text-decoration: underline;">contact@easyspot.online</a>
+            </p>
           </div>
           <div class="footer-links">
             <h4>الأقسام</h4>
@@ -657,8 +670,8 @@ const fullTitle = `${title} | ${siteName}`;
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© {new Date().getFullYear()} طيف الأمل. جميع الحقوق محفوظة.</p>
-          <p class="footer-disclaimer">المحتوى على هذا الموقع لأغراض تعليمية فقط وليس بديلاً عن الاستشارة الطبية المتخصصة.</p>
+          <p>© {new Date().getFullYear()} منصة إيزي سبوت EasySpot.online — طيف الأمل. جميع الحقوق محفوظة.</p>
+          <p class="footer-disclaimer">المحتوى على هذا الموقع لأغراض تعليمية وتوعوية فقط وليس بديلاً عن الاستشارة الطبية المتخصصة أو التشخيص السريري. استشر دائماً طبيب الأطفال أو أخصائي التخاطب والنمو المرخص.</p>
         </div>
       </div>
     </footer>
