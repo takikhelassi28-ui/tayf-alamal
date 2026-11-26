@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Homepage -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/</loc>
+    <loc>https://www.easyliife.online/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -10,19 +10,19 @@
 
   <!-- Interactive Decision Calculators Hub & Tools -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/tools/</loc>
+    <loc>https://www.easyliife.online/tools/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/tools/auto-savings-calculator/</loc>
+    <loc>https://www.easyliife.online/tools/auto-savings-calculator/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/tools/life-insurance-calculator/</loc>
+    <loc>https://www.easyliife.online/tools/life-insurance-calculator/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,25 +30,25 @@
 
   <!-- Auto Insurance Cluster -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/auto-insurance/</loc>
+    <loc>https://www.easyliife.online/guides/auto-insurance/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/cheap-car-insurance-guide/</loc>
+    <loc>https://www.easyliife.online/guides/cheap-car-insurance-guide/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/state-car-insurance-averages/</loc>
+    <loc>https://www.easyliife.online/guides/state-car-insurance-averages/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/insurance-score-factors/</loc>
+    <loc>https://www.easyliife.online/guides/insurance-score-factors/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -56,13 +56,13 @@
 
   <!-- Health & Medicare Cluster -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/health-insurance/</loc>
+    <loc>https://www.easyliife.online/guides/health-insurance/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/medicare-open-enrollment/</loc>
+    <loc>https://www.easyliife.online/guides/medicare-open-enrollment/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -70,13 +70,13 @@
 
   <!-- Property & Bundling Cluster -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/home-insurance/</loc>
+    <loc>https://www.easyliife.online/guides/home-insurance/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/home-auto-bundle/</loc>
+    <loc>https://www.easyliife.online/guides/home-auto-bundle/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -84,7 +84,7 @@
 
   <!-- Life Insurance Cluster -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/life-insurance/</loc>
+    <loc>https://www.easyliife.online/guides/life-insurance/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -92,13 +92,13 @@
 
   <!-- Commercial & Liability Cluster -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/commercial-insurance/</loc>
+    <loc>https://www.easyliife.online/guides/commercial-insurance/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/guides/commercial-workers-comp/</loc>
+    <loc>https://www.easyliife.online/guides/commercial-workers-comp/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -106,37 +106,37 @@
 
   <!-- Trust, Authority & Methodology -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/about/</loc>
+    <loc>https://www.easyliife.online/about/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/editorial-guidelines/</loc>
+    <loc>https://www.easyliife.online/editorial-guidelines/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/contact/</loc>
+    <loc>https://www.easyliife.online/contact/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/privacy-policy/</loc>
+    <loc>https://www.easyliife.online/privacy-policy/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/terms/</loc>
+    <loc>https://www.easyliife.online/terms/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/disclaimer/</loc>
+    <loc>https://www.easyliife.online/disclaimer/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -144,31 +144,31 @@
 
   <!-- Global News & Facts Hub Cluster -->
   <url>
-    <loc>https://quoteshield-roan.vercel.app/news/</loc>
+    <loc>https://www.easyliife.online/news/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/news/ai-global-economy-workplace/</loc>
+    <loc>https://www.easyliife.online/news/ai-global-economy-workplace/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/news/renewable-energy-milestones/</loc>
+    <loc>https://www.easyliife.online/news/renewable-energy-milestones/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/news/space-commercial-expansion/</loc>
+    <loc>https://www.easyliife.online/news/space-commercial-expansion/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://quoteshield-roan.vercel.app/news/muscle-hypertrophy-scientific-truth/</loc>
+    <loc>https://www.easyliife.online/news/muscle-hypertrophy-scientific-truth/</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
